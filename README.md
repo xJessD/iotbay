@@ -1,6 +1,5 @@
 # IoTBay Project
-> To add a screenshot 
-
+![Screenshot](/src/main/resources/images/register.png)
 
 ## Overview
 
