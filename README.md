@@ -1,4 +1,6 @@
 # IoTBay Project
+> To add a screenshot 
+
 
 ## Overview
 
@@ -6,6 +8,8 @@
 A Java Web App, created for 41025 Introduction to Software Development.
 
 ### MVP
+> To fill out
+
 R0 - 
 
 R1 - 
@@ -19,6 +23,7 @@ R1 -
 - Tester - JUnit
 
 - Server - apace-tomcat-11.0.0-M6
+
 
 ### Notes
 To view the README in VS Code: **Right Click + Open Preview** or **Ctr + Shift + V**
