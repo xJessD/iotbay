@@ -15,7 +15,7 @@
             <section>
                 <h2>Register</h2>
 
-                <form action="/webapp/index.jsp" method="post">
+                <form action="/webapp/welcome.jsp" method="post">
                 
                 <label for="fname">First Name: </label>
                 <input type="text" name="fname" />

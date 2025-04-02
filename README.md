@@ -8,11 +8,36 @@
 A Java Web App, created for 41025 Introduction to Software Development.
 
 ### MVP
-> To fill out
+- R0 Implementation - Login/Register/Logout
+- R1 Implementation - 
 
-R0 - 
+>- **Landing page** – Implement the landing page or home
+page of the IoTBay application. It is the starting point of
+the web application and should provide the options of
+login and register for users.
+>- **Login page** – Implement the login page using a web
+form (e.g. JSP). The login page must post the form-data
+to the welcome page.
+>- **Register page** – Implement the register page using a
+web form (e.g. JSP). The register page must post the
+form-data to the welcome page.
+>- **Welcome page** – Implement the welcome page to
+retrieve the posted form-data from the register page and
+the login page. The welcome page must use JavaBeans
+and sessions to transport the logged-in user data to the
+main page.
+>- **Main page** – Implement the main page to retrieve the
+user Beans saved into the session and display it. The
+main page must provide a logout link.
+>- **Logout page** – Implement the logout page for users to
+use from the main page. The logout page must redirect
+users to the landing page and terminate the session.
+>- **Data model** – Create an initial version of the IoTBay
+software application data model (JavaBeans).
 
-R1 - 
+
+
+
 
 ## Notes
 ### Environment Setup
