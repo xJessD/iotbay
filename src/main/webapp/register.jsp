@@ -14,30 +14,39 @@
 
         
         <main><!-- Please put all content inside the main tags -->
-            <section>
+            <section class="register-form-container">
                 <h2>Register</h2>
 
-                <form action="/webapp/welcome.jsp" method="post">
+                <form class="register-form" action="/webapp/welcome.jsp" method="post">
                 
-                <label for="fname">First Name: </label>
-                <input type="text" name="fname" />
-
-                <label for="lname">Last Name: </label>
-                <input type="text" name="lname" />
-
-                <label for="email">Email: </label>
-                <input type="text" name="email">
-
-                <label for="password">Password: </label>
-                <input type="password" name="password" />
-
+                <div class="form-group">
+                    <label for="fname">First Name: </label>
+                    <input type="text" id="fname" name="fname" required/>
+                </div>
                 
-                <label for="TOS">TOS: </label>
-                <input type="checkbox" name="TOS" />
+                <div class="form-group">
+                    <label for="lname">Last Name: </label>
+                    <input type="text" id="lname" name="lname" required/>
+                </div>
 
-                <br>
+                <div class="form-group">
+                    <label for="email">Email: </label>
+                    <input type="text" id="email" name="email" required>
+                </div>
 
-                <input type="submit" class="submit-btn" />
+                <div class="form-group">
+                    <label for="password">Password: </label>
+                    <input type="password" id="password" name="password" required/>
+                </div>
+                
+                <div class="checkbox-group">
+                    <label for="TOS">TOS: </label>
+                    <input type="checkbox" name="TOS" required/>
+                </div>
+
+                <button type="submit" class="form-button">Register</button>
+
+                <div class="form-group">Already have an account? <a href="/webapp/login.jsp">Log in</a>.</div>
             </form>
             </section>
                 
