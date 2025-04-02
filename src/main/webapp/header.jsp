@@ -1,5 +1,3 @@
-<link href="/webapp/style.css" rel="stylesheet" type="text/css">
-
 <nav>
     <div class="nav-left">
         <h1 class="site-title">IoTBay</h1>
@@ -13,7 +11,8 @@
     <div class="nav-right">
         <ul class="nav-links">
             <li><a href="">Products</a></li>
-            <li><a href="#">Login</a></li>
-    </ul>
+            <li><a href="/webapp/login.jsp">Login</a></li>
+            <li><a href="/webapp/register.jsp">Register</a></li>
+        </ul>
     </div>
 </nav>

@@ -6,7 +6,6 @@
 }
 
 body {
-    background-color: #DDD;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -32,10 +31,11 @@ nav {
     margin-right: 1rem;
 }
 
-.search-container {
+.search-bar {
     display: flex;
     flex: 0 1 400px;
     margin: 0 1rem;
+    justify-content: center;
 }
 
 .search-container input {
@@ -96,7 +96,7 @@ footer {
 
 /* Responsive styles */
 @media (max-width: 992px) {
-    .search-container {
+    .search-bar {
         flex: 0 1 300px;
     }
 }
@@ -117,7 +117,7 @@ footer {
         text-align: center;
     }
 
-    .search-container {
+    .search-bar {
         flex: 1;
         margin: 1rem 0;
         width: 100%;

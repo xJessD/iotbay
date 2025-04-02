@@ -1,6 +1,6 @@
 <html>
     <header>
-        <title>Template</title>
+        <title>Log In</title>
         <link href="/webapp/css.css" rel="stylesheet" type="text/css" >
         <% 
         // Variables go here
@@ -12,7 +12,9 @@
 
         
         <main><!-- Please put all content inside the main tags -->
-            <section>Welcome to the home page</section>
+            <section>
+                <h2>Log In</h2>
+            </section>
                 
         </main>
         
