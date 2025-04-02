@@ -1,19 +1,22 @@
 <html>
     <header>
         <title>Template</title>
-        <link href="/webapp/style.css" rel="stylesheet" type="text/css">
+        <link href="/webapp/css.css" rel="stylesheet" type="text/css" >
         <% 
-        // Add in variables here
-        %>
-
+        // Variables go here
+        %> 
     </header>
 
     <body>
-        <ul id="nav">
-            <li><a href="">Products</a></li>
-            <li><a href="/webapp/login.jsp">Login</a></li>
-        </ul>
-        <h2>Template</h2>
-        <a href="/webapp/template.jsp">Go to template</a>
+            <%@ include file="header.jsp" %><!-- Site title and nav please do not remove -->
+
+        
+        <main><!-- Please put all content inside the main tags -->
+            <section>Section 1</section>
+                
+        </main>
+        
+
+            <%@ include file="footer.jsp" %><!-- Site footer please do not remove -->
     </body>
 </html>
