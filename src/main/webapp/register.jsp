@@ -1,10 +1,12 @@
 <html>
+    <% 
+        // Variables go here
+    %> 
+
     <header>
         <title>Register</title>
         <link href="/webapp/css.css" rel="stylesheet" type="text/css" >
-        <% 
-        // Variables go here
-        %> 
+        
     </header>
 
     <body>

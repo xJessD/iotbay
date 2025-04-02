@@ -4,7 +4,7 @@
     %>
 
     <header>
-        <title>Log In</title>
+        <title>Log Out</title>
         <link href="/webapp/css.css" rel="stylesheet" type="text/css" >
          
     </header>
@@ -15,7 +15,9 @@
         
         <main><!-- Please put all content inside the main tags -->
             <section>
-                <h2>Log In</h2>
+                <% session.invalidate() ;%>
+
+                <p>You are now logged out. Click here to go to <a href="/webapp/index.jsp">home</a>.</p>
             </section>
                 
         </main>

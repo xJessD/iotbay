@@ -1,9 +1,7 @@
 <%@ page import="model.User"%>
+
 <html>
-    <header>
-        <title>Welcome</title>
-        <link href="/webapp/css.css" rel="stylesheet" type="text/css" >
-        <% 
+    <% 
         String fname = request.getParameter("fname"); 
         String lname = request.getParameter("lname"); 
         String email = request.getParameter("email");
@@ -11,7 +9,12 @@
         
         User user = new User(fname, lname, email, password);
         session.setAttribute("user", user);
-        %> 
+        %>
+
+    <header>
+        <title>Welcome</title>
+        <link href="/webapp/css.css" rel="stylesheet" type="text/css" >
+         
     </header>
 
     <body>
@@ -30,7 +33,9 @@
                     } else {
                 %>
                    <h2>Welcome <%= user.getFname()%>!</h2> 
-                   <p>Thank you for registering with <%= user.getEmail()%>.
+                   <p>Thank you for registering with <%= user.getEmail()%>.</p>
+
+                    <a href="/webapp/logout.jsp">Log Out.</a>
                 <%
                     }
                 %>
