@@ -1,15 +1,30 @@
 # IoTBay Project
+
 ![Screenshot](/src/main/resources/images/register.png)
 
 ## Overview
 
 ### Project Description
+
 A Java Web App, created for 41025 Introduction to Software Development.
 
-### MVP
-- R0 Implementation - Login/Register/Logout
-- R1 Implementation - 
 
+### MVP
+
+- R0 Implementation - Login/Register/Logout
+
+
+| Page               |             Status |
+|--------------------|--------------------|
+| Landing Page       | Done               |
+| Login Page         | Done               |
+| Register Page      | Done               |
+| Welcome Page	     | Done               |
+| Main Page          |                    |
+| Logout Page        | Done               |
+| Data Model         | Started            |
+
+<!--
 >- **Landing page** – Implement the landing page or home
 page of the IoTBay application. It is the starting point of
 the web application and should provide the options of
@@ -34,12 +49,12 @@ users to the landing page and terminate the session.
 >- **Data model** – Create an initial version of the IoTBay
 software application data model (JavaBeans).
 
-
-
+-->
 
 
 ## Notes
 ### Environment Setup
+
 - Java Runtime - JavaSE-17
 
 - Compiler - 17
@@ -48,10 +63,12 @@ software application data model (JavaBeans).
 
 - Server - apace-tomcat-11.0.0-M6
 
-
-### Notes
-To view the README in VS Code: **Right Click + Open Preview** or **Ctr + Shift + V**
+#
+### Other
 
 - Please create a seperate branch to work on and not in main to avoid conflicts
+- Once functionality is done, please commit and push to GitHub, create a pull request to ensure the main branch is up to date. 
+
+- To view the README in VS Code: **Right Click + Open Preview** or **Ctr + Shift + V**
 - Resources such as images can go into: **main -> resources**
 - When creating a new page, copy the template file and the content can go inside the `<main>` tags.
