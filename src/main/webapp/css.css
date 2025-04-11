@@ -3,31 +3,46 @@ Orange - F96E46
 Brown - 694A38
 Gray - DDD
 */
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
 body {
     background-color: #f5f5f5;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
 h2 {
     margin-bottom: 1.5rem;
     color: #333;
     text-align: center;
 }
+<<<<<<< HEAD
+a {
+    color: #ff8a8a;
+}
+=======
 
 a {
     color: #FFF;
 }
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
 /* Header Styling */
 nav {
     background-color: #333;
@@ -37,32 +52,47 @@ nav {
     padding: 0.5rem 1rem;
     flex-wrap: wrap;
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
 .nav-left, .nav-right {
     display: flex;
     align-items: center;
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
 .site-title {
     color: #FFF;
     font-size: 2.5rem;
     margin-right: 1rem;
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
 .search-bar {
     display: flex;
     flex: 0 1 400px;
     margin: 0 1rem;
     justify-content: center;
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
 .search-bar input {
     padding: 0.5rem;
     border: none;
     border-radius: 4px 0 0 4px;
     width: 100%;
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
 .search-bar button {
     background-color: #F96E46;
     color: white;
@@ -71,27 +101,42 @@ nav {
     border-radius: 0 4px 4px 0;
     white-space: nowrap;
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
 .nav-links {
     display: flex;
     list-style: none;
 }
+<<<<<<< HEAD
+.nav-links li {
+    margin-right: 1rem;
+}
+=======
 
 .nav-links li {
     margin-right: 1rem;
 }
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
 .nav-links a {
     text-decoration: none;
     padding: 0.5rem;
     display: flex;
     align-items: center;
 }
+<<<<<<< HEAD
+.nav-links a:hover {
+    color: 694A38;
+}
+=======
 
 .nav-links a:hover {
     color: 694A38;
 }
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
 main {
     width: 100%;
     max-width: 1200px;
@@ -99,26 +144,39 @@ main {
     padding: 1rem;
     flex: 1;
 }
+<<<<<<< HEAD
+/* Form Styling */
+=======
 
 /* Form Styling */
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
 .register-form-container {
     background-color: white;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+<<<<<<< HEAD
+.form-group {
+    margin-bottom: 1.5rem;
+}
+=======
 
 .form-group {
     margin-bottom: 1.5rem;
 }
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
 .form-group input {
     width: 100%;
     padding: 0.8rem;
@@ -126,6 +184,13 @@ main {
     border-radius: 4px;
     font-size: 1rem;
 }
+<<<<<<< HEAD
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+=======
 
 .checkbox-group {
     display: flex;
@@ -133,11 +198,15 @@ main {
     margin-bottom: 1.5rem; 
 }
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
 .checkbox-group input {
     margin-top: 0.2rem;
     margin-left: 0.8rem;
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
 .form-button {
     background-color: #F96E46;
     color: white;
@@ -148,6 +217,11 @@ main {
     width: 100%;
     margin-bottom: 1rem;
 }
+<<<<<<< HEAD
+.form-button:hover {
+    background-color: #DDD;
+}
+=======
 
 .form-button:hover {
     background-color: #DDD;
@@ -155,6 +229,7 @@ main {
 
 
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
 /* Footer Styling */
 footer {
     background-color: #DDD;
@@ -162,58 +237,88 @@ footer {
     padding: 1.5rem 1rem;
     margin-top: 2rem;
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
 .footer-content {
     max-width: 1400px;
     margin: 0 auto;
     text-align: center;
 }
+<<<<<<< HEAD
+.footer-content a {
+    color: #694A38;
+}
+=======
 
 .footer-content a {
     color: #694A38;
 }
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
 /* Responsive styles */
 @media (max-width: 992px) {
     .search-bar {
         flex: 0 1 300px;
     }
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
         align-items: stretch;
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
     .nav-left, .nav-right {
         flex-direction: column;
         align-items: stretch;
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
     .site-title {
         margin-bottom: 1rem;
         text-align: center;
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
     .search-bar {
         flex: 1;
         margin: 1rem 0;
         width: 100%;
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
     .nav-links {
         flex-direction: column;
         width: 100%;
         margin-bottom: 1rem;
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
     .nav-links li {
         margin-right: 0;
         margin-bottom: 0.5rem;
         text-align: center;
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
     .nav-links a {
         justify-content: center;
     }

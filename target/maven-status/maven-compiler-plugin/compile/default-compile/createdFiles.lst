@@ -1,2 +1,12 @@
+<<<<<<< HEAD
+controller\LoginServlet.class
+model\Product.class
+controller\LogoutServlet.class
+controller\TestServlet.class
+controller\RegisterServlet.class
+model\User.class
+model\UserDAO.class
+=======
 model\Calculator.class
 model\User.class
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a

@@ -1,7 +1,27 @@
+<<<<<<< HEAD
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+=======
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
 <html>
     <%
         String errorMessage = request.getParameter("error");
     %>
+<<<<<<< HEAD
+    <head>
+        <title>Log In</title>
+        <link rel="stylesheet" href="css.css">
+        
+    </head>
+    <body>
+        <%@ include file="header.jsp" %> <!-- Site title and nav please do not remove -->
+        <main>
+            <section class="form-container">
+                <h2>Log In</h2>
+                <% if (errorMessage != null) { %>
+                    <div class="error-message"><%= errorMessage %></div>
+                <% } %>
+=======
 
     <head>
         <title>Log In</title>
@@ -92,27 +112,42 @@
                     <div class="error-message"><%= errorMessage %></div>
                 <% } %>
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
                 <form action="LoginServlet" method="post">
                     <div class="form-group">
                         <label for="email">Email:</label>
                         <input type="text" id="email" name="email" required>
                     </div>
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
                     <div class="form-group">
                         <label for="password">Password:</label>
                         <input type="password" id="password" name="password" required>
                     </div>
+<<<<<<< HEAD
+                    <button type="submit" class="btn-login">Login</button>
+                </form>
+=======
 
                     <button type="submit" class="btn-login">Login</button>
                 </form>
 
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
                 <div class="form-footer">
                     <p><a href="register.jsp">Don't have an account? Register here</a></p>
                     <p><a href="forgotPassword.jsp">Forgot your password?</a></p>
                 </div>
             </section>
         </main>
+<<<<<<< HEAD
+        <%@ include file="footer.jsp" %> <!-- Site footer please do not remove -->
+    </body>
+</html>
+=======
 
         <%@ include file="footer.jsp" %> <!-- Site footer please do not remove -->
     </body>
 </html>
+>>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
