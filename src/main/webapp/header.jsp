@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.User"%>
 <!DOCTYPE html>
@@ -130,6 +133,7 @@
         background-color: #e55a33;
         color: white !important;
     }
+<<<<<<< HEAD
 </style>
 =======
 <nav>
@@ -151,3 +155,6 @@
     </div>
 </nav>
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+</style>
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec

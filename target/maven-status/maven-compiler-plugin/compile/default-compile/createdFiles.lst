@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 controller\LoginServlet.class
 model\Product.class
 controller\LogoutServlet.class
@@ -6,7 +9,10 @@ controller\TestServlet.class
 controller\RegisterServlet.class
 model\User.class
 model\UserDAO.class
+<<<<<<< HEAD
 =======
 model\Calculator.class
 model\User.class
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec

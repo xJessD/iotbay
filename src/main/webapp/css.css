@@ -4,9 +4,12 @@ Brown - 694A38
 Gray - DDD
 */
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 * {
     margin: 0;
     padding: 0;
@@ -14,9 +17,12 @@ Gray - DDD
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 body {
     background-color: #f5f5f5;
     display: flex;
@@ -24,14 +30,18 @@ body {
     min-height: 100vh;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 h2 {
     margin-bottom: 1.5rem;
     color: #333;
     text-align: center;
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 a {
     color: #ff8a8a;
@@ -43,6 +53,11 @@ a {
 }
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+a {
+    color: #ff8a8a;
+}
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 /* Header Styling */
 nav {
     background-color: #333;
@@ -53,26 +68,35 @@ nav {
     flex-wrap: wrap;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 .nav-left, .nav-right {
     display: flex;
     align-items: center;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 .site-title {
     color: #FFF;
     font-size: 2.5rem;
     margin-right: 1rem;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 .search-bar {
     display: flex;
     flex: 0 1 400px;
@@ -80,9 +104,12 @@ nav {
     justify-content: center;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 .search-bar input {
     padding: 0.5rem;
     border: none;
@@ -90,9 +117,12 @@ nav {
     width: 100%;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 .search-bar button {
     background-color: #F96E46;
     color: white;
@@ -102,13 +132,17 @@ nav {
     white-space: nowrap;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 .nav-links {
     display: flex;
     list-style: none;
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 .nav-links li {
     margin-right: 1rem;
@@ -120,6 +154,11 @@ nav {
 }
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+.nav-links li {
+    margin-right: 1rem;
+}
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 .nav-links a {
     text-decoration: none;
     padding: 0.5rem;
@@ -127,6 +166,7 @@ nav {
     align-items: center;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 .nav-links a:hover {
     color: 694A38;
 }
@@ -137,6 +177,11 @@ nav {
 }
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+.nav-links a:hover {
+    color: 694A38;
+}
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 main {
     width: 100%;
     max-width: 1200px;
@@ -145,12 +190,16 @@ main {
     flex: 1;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* Form Styling */
 =======
 
 /* Form Styling */
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+/* Form Styling */
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 .register-form-container {
     background-color: white;
     padding: 2rem;
@@ -158,6 +207,7 @@ main {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -168,15 +218,23 @@ main {
 }
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+.form-group {
+    margin-bottom: 1.5rem;
+}
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 .form-group input {
     width: 100%;
     padding: 0.8rem;
@@ -185,11 +243,15 @@ main {
     font-size: 1rem;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 .checkbox-group {
     display: flex;
     align-items: flex-start;
     margin-bottom: 1.5rem;
 }
+<<<<<<< HEAD
 =======
 
 .checkbox-group {
@@ -199,14 +261,19 @@ main {
 }
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 .checkbox-group input {
     margin-top: 0.2rem;
     margin-left: 0.8rem;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 .form-button {
     background-color: #F96E46;
     color: white;
@@ -218,6 +285,7 @@ main {
     margin-bottom: 1rem;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 .form-button:hover {
     background-color: #DDD;
 }
@@ -230,6 +298,11 @@ main {
 
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+.form-button:hover {
+    background-color: #DDD;
+}
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 /* Footer Styling */
 footer {
     background-color: #DDD;
@@ -238,14 +311,18 @@ footer {
     margin-top: 2rem;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 .footer-content {
     max-width: 1400px;
     margin: 0 auto;
     text-align: center;
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 .footer-content a {
     color: #694A38;
@@ -257,6 +334,11 @@ footer {
 }
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+.footer-content a {
+    color: #694A38;
+}
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 /* Responsive styles */
 @media (max-width: 992px) {
     .search-bar {
@@ -264,61 +346,82 @@ footer {
     }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
         align-items: stretch;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
     .nav-left, .nav-right {
         flex-direction: column;
         align-items: stretch;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
     .site-title {
         margin-bottom: 1rem;
         text-align: center;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
     .search-bar {
         flex: 1;
         margin: 1rem 0;
         width: 100%;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
     .nav-links {
         flex-direction: column;
         width: 100%;
         margin-bottom: 1rem;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
     .nav-links li {
         margin-right: 0;
         margin-bottom: 0.5rem;
         text-align: center;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
     .nav-links a {
         justify-content: center;
     }

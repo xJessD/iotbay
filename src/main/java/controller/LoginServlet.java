@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 package controller;
 
 import model.User;
@@ -45,7 +48,11 @@ public class LoginServlet extends HttpServlet {
         // Redirect to login page
         response.sendRedirect("login.jsp");
     }
+<<<<<<< HEAD
 }
 =======
 
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+}
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec

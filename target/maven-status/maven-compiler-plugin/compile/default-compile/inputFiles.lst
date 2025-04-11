@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
 C:\Users\thoma\OneDrive\Desktop\iotbay-main\src\main\java\controller\RegisterServlet.java
 C:\Users\thoma\OneDrive\Desktop\iotbay-main\src\main\java\controller\LoginServlet.java
 C:\Users\thoma\OneDrive\Desktop\iotbay-main\src\main\java\model\Product.java
@@ -6,7 +9,10 @@ C:\Users\thoma\OneDrive\Desktop\iotbay-main\src\main\java\model\User.java
 C:\Users\thoma\OneDrive\Desktop\iotbay-main\src\main\java\controller\TestServlet.java
 C:\Users\thoma\OneDrive\Desktop\iotbay-main\src\main\java\model\UserDAO.java
 C:\Users\thoma\OneDrive\Desktop\iotbay-main\src\main\java\controller\LogoutServlet.java
+<<<<<<< HEAD
 =======
 c:\Users\xJessD\OneDrive\Documents\Projects\iotbay\src\main\java\model\Calculator.java
 c:\Users\xJessD\OneDrive\Documents\Projects\iotbay\src\main\java\model\User.java
 >>>>>>> 5f6be21519bd5ef234db77a96374868f511fb70a
+=======
+>>>>>>> fc2a438f0fdd803075a5b2a56bffcab1ecbbdaec
