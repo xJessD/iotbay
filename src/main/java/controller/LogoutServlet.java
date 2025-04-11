@@ -19,13 +19,11 @@ public class LogoutServlet extends HttpServlet {
             session.invalidate();
         }
         
-        // Redirect to index page
         response.sendRedirect("logout.jsp");
     }
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Call doGet to handle POST requests the same way as GET requests
         doGet(request, response);
     }
 }

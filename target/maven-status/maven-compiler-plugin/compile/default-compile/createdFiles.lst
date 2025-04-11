@@ -1,7 +1,6 @@
 controller\LoginServlet.class
 model\Product.class
 controller\LogoutServlet.class
-controller\TestServlet.class
 controller\RegisterServlet.class
 model\User.class
 model\UserDAO.class
