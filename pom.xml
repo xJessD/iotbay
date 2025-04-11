@@ -35,7 +35,7 @@
   <build>
     <finalName>iotbay</finalName>
     
-    <!-- Make sure Java classes are properly compiled and included -->
+  
     <sourceDirectory>src/main/java</sourceDirectory>
     
     <plugins>
@@ -50,9 +50,9 @@
           <stopKey>CTRL+C</stopKey>
           <stopPort>8999</stopPort>
           <httpConnector>
-            <port>8080</port> <!-- Changed from 8080 to avoid port conflicts -->
+            <port>8080</port> 
           </httpConnector>
-          <scanIntervalSeconds>5</scanIntervalSeconds> <!-- Enables hot reloading -->
+          <scanIntervalSeconds>5</scanIntervalSeconds>
         </configuration>
       </plugin>
       <plugin>
