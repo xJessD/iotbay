@@ -9,7 +9,6 @@
     <title>IoTBay - Main Page</title>
     <link rel="stylesheet" href="css.css">
     <style>
-        /* Additional styles specific to the main page */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -44,14 +43,12 @@
             padding: 30px;
             border: 1px solid #ddd;
             border-radius: 4px;
-            /* Increased height to accommodate larger images */
             min-height: 400px;
         }
         
         .product-info {
             flex: 1;
             padding-right: 30px;
-            /* Added to ensure text wraps properly */
             max-width: 60%;
             display: flex;
             flex-direction: column;
@@ -59,7 +56,6 @@
         }
         
         .product-image {
-            /* Doubled the size of images */
             width: 400px;
             height: 400px;
             border: 1px solid #eee;
@@ -157,8 +153,6 @@
         <h2 class="section-title">New Items</h2>
         <section class="product-grid">
             <%
-                // In a real implementation, you would fetch products from a database
-                // Here we're creating sample products for demonstration
                 Product[] featuredProducts = new Product[3];
                 
                 featuredProducts[0] = new Product(1, "Smart Home Hub", "product1.jpg", 
