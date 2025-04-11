@@ -143,7 +143,7 @@ footer {
 .footer-content a {
     color: #694A38;
 }
-/* Responsive styles */
+
 @media (max-width: 992px) {
     .search-bar {
         flex: 0 1 300px;

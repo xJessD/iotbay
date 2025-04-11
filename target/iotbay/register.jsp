@@ -69,11 +69,11 @@
         <main><!-- Please put all content inside the main tags -->
             <section class="register-form-container">
                 <h2>Register</h2>
-                
+               
                 <% if (errorMessage != null) { %>
                     <div class="error-message"><%= errorMessage %></div>
                 <% } %>
-                
+               
                 <form action="RegisterServlet" method="post">
                     <div class="form-group label">
                         <label for="fname">First Name: </label>
