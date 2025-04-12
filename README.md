@@ -1,4 +1,3 @@
-### **Important**
 If there are collision errors when running IotBay, try downloading and running from your local Maven repository. 
 
 Application will be accesible at http://localhost:8080
