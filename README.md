@@ -1,8 +1,14 @@
+Any issues ensure compatibility with Zulu JDK 8 (not Oracle JDK) and Maven 3.9.9
+
 If there are collision errors when running IotBay, try downloading and running from your local Maven repository. 
 
 Application will be accesible at http://localhost:8080
 
-If tests fail jetty:run--DskipTests
+If tests fail mvn clean package-DskipTests then jetty:run
+
+
+
+
 
 # IoTBay Project
 
