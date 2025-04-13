@@ -33,7 +33,7 @@
                     } else {
                 %>
                    <h2>Welcome <%= user.getFname()%>!</h2> 
-                   <p>Thank you for registering with <%= user.getEmail()%>.</p>
+                   <p>Please explore our catalogue! <%= user.getEmail()%>.</p>
 
                     <a href="/webapp/logout.jsp">Log Out.</a>
                 <%
