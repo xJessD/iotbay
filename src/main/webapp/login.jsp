@@ -92,7 +92,7 @@
                     <div class="error-message"><%= errorMessage %></div>
                 <% } %>
 
-                <form action="LoginServlet" method="post">
+                <form action="welcome.jsp" method="post">
                     <div class="form-group">
                         <label for="email">Email:</label>
                         <input type="text" id="email" name="email" required>
