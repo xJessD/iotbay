@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 
-public class Product {
+public class Product implements Serializable {
     private int productID;
     private String name;
     private String imageUrl;
