@@ -7,7 +7,7 @@
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         
-        User user = new User(fname, lname, email, password);
+        User user = new User(fname, lname, email, password, "");
         session.setAttribute("user", user);
         %>
 
@@ -32,7 +32,7 @@
                 <%
                     } else {
                 %>
-                   <h2>Welcome <%= user.getFname()%>!</h2> 
+                   <h2>Welcome <%= user.getFirstName()%>!</h2> 
                    <p>Please explore our catalogue! <%= user.getEmail()%>.</p>
 
                     <a href="/webapp/logout.jsp">Log Out.</a>
