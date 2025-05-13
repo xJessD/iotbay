@@ -27,7 +27,7 @@ public class ConnServlet extends HttpServlet {
 
     private DBConnector db;
 
-    private DBManager manager;
+    private UserDAO manager;
 
     private Connection conn;
 
@@ -61,7 +61,7 @@ public class ConnServlet extends HttpServlet {
 
         try {
 
-            manager = new DBManager(conn);
+            manager = new UserDAO(conn);
 
         } catch (SQLException ex) {
 

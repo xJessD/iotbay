@@ -53,6 +53,9 @@ software application data model (JavaBeans).
 
 
 ## Notes
+### To Run
+- Everyone will need to create their own DB.java to connect to the database per in class. 
+
 ### Environment Setup
 
 - Java Runtime - JavaSE-17
@@ -62,6 +65,8 @@ software application data model (JavaBeans).
 - Tester - JUnit
 
 - Server - apace-tomcat-11.0.0-M6
+
+- Database - SQLite
 
 #
 ### Other
