@@ -1,37 +1,42 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Date;
 
-public class User implements Serializable{
-    private String fname;
-    private String lname;
+public class User implements Serializable {
+    private String firstName;
+    private String lastName;
     private String email;
     private String password;
+    private String phoneNumber;
+    private Date createdDate;
+    private Date updatedDate;
 
     // Constructors
     public User() {}
 
-    public User(String fname, String lname, String email, String password) {
-        this.fname = fname;
-        this.lname = lname;
+    public User(String firstName, String lastName, String email, String password, String phoneNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.phoneNumber = phoneNumber;
     } 
     // Getters & Setters
-    public String getFname() {
-        return fname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFname(String fname) {
-        this.fname = fname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLname() {
-        return lname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLname(String lname) {
-        this.lname = lname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -49,4 +54,12 @@ public class User implements Serializable{
     public void setPassword(String password) {
         this.password = password;
     } 
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 }
