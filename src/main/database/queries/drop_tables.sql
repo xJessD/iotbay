@@ -1,3 +1,1 @@
-DROP TABLE Customer;
-DROP TABLE Staff;
 DROP TABLE User;

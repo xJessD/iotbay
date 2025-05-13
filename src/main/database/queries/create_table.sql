@@ -1,5 +1,5 @@
-CREATE TABLE Customer (
-    customerID INTEGER PRIMARY KEY,
+CREATE TABLE User (
+    userID INTEGER PRIMARY KEY,
     firstName VARCHAR(20),
     lastName VARCHAR(20),
     email VARCHAR(50) UNIQUE,
@@ -11,25 +11,6 @@ CREATE TABLE Customer (
     postcode VARCHAR(4),
     suburb VARCHAR(10),
     createdDate DATE DEFAULT CURRENT_TIMESTAMP,
-    lastUpdated DATE DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TABLE Staff (
-    staffID INTEGER PRIMARY KEY,
-    firstName VARCHAR(20),
-    lastName VARCHAR(20),
-    email VARCHAR(50) UNIQUE,
-    password VARCHAR(20),
-    phoneNumber VARCHAR(15),
-    createdDate DATE DEFAULT CURRENT_TIMESTAMP,
     lastUpdated DATE DEFAULT CURRENT_TIMESTAMP,
-    roleInCompany VARCHAR(20)
-);
-
-CREATE TABLE User (
-    name VARCHAR(20),
-    email VARCHAR(30),
-    password VARCHAR(30),
-    gender VARCHAR(10),
-    colour VARCHAR(10)
+    role VARCHAR(20)
 );

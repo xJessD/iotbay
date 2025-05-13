@@ -26,7 +26,7 @@ public User findUser(String email, String password) throws SQLException {
    
    //search the ResultSet for a user using the parameters  
    if (rs.next()) { 
-        String name = rs.getString("name");
+        String name = rs.getString("firstName");
 
         return new User(name, "", email, password, ""); 
    }
