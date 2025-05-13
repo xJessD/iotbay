@@ -11,3 +11,5 @@ INSERT INTO Staff (firstName, lastName, email, password, phoneNumber, roleInComp
 INSERT INTO Staff (firstName, lastName, email, password, phoneNumber, roleInCompany) VALUES ("Sarah", "Taylor", "staylor@iotbay.com", "SarahPass456", 87654321, "Staff");
 INSERT INTO Staff (firstName, lastName, email, password, phoneNumber, roleInCompany) VALUES ("James", "Anderson", "janderson@iotbay.com", "JamesStrong123", 76543210, "Staff");
 INSERT INTO Staff (firstName, lastName, email, password, phoneNumber, roleInCompany) VALUES ("Emily", "Wilson", "ewilson@iotbay.com", "EmilySecret567", 65432109, "Customer Service");
+
+insert into User values ('James Qu', 'test@t.com', '123456', 'male', 'blue');
