@@ -1,3 +1,4 @@
+<%@ page import="model.User"%>
 <html>
     <% 
         // Variables go here (none needed for landing page)
@@ -29,5 +30,6 @@
         </main>
 
         <%@ include file="footer.jsp" %> <!-- Site footer please do not remove -->
+        <jsp:include page="/ConnServlet" flush="true" />
     </body>
 </html>
