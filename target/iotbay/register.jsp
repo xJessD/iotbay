@@ -5,7 +5,7 @@
 
     <header>
         <title>Register</title>
-        <link href="/webapp/css.css" rel="stylesheet" type="text/css" >
+        <link href="css.css" rel="stylesheet" type="text/css" >
         
     </header>
 

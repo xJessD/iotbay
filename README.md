@@ -54,7 +54,9 @@ software application data model (JavaBeans).
 
 ## Notes
 ### To Run
-- Everyone will need to create their own DB.java to connect to the database per in class. 
+- Run "mvn clean comiple package" in the terminal
+- Deploy .war file on the server
+- View using http://localhost:8080/iotbay/, or through server actions. 
 
 ### Environment Setup
 
@@ -70,10 +72,9 @@ software application data model (JavaBeans).
 
 #
 ### Other
-
+- Everyone will need to create their own DB.java to connect to the database per in class. 
 - Please create a seperate branch to work on and not in main to avoid conflicts
 - Once functionality is done, please commit and push to GitHub, create a pull request to ensure the main branch is up to date. 
-
 - To view the README in VS Code: **Right Click + Open Preview** or **Ctr + Shift + V**
 - Resources such as images can go into: **main -> resources**
 - When creating a new page, copy the template file and the content can go inside the `<main>` tags.
