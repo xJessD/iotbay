@@ -20,6 +20,9 @@ public class TestDB {
 
             Connection conn = connector.openConnection();
 
+            OrderDBSetup.createTables(conn);
+
+
             UserDAO db = new UserDAO(conn);
 
             User user = db.findUser("test@t.com", "123456");
