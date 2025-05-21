@@ -1,113 +1,82 @@
-package com.IoTBay.dao;
+package com.IoTBay.Models;
 
-import com.IoTBay.Models.Product;
-import com.IoTBay.Models.ProductView;
+import java.io.Serializable;
 
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+public class Product implements Serializable {
 
-public class ProductDAO {
-    private final Connection conn;
+    private int productID;
+    private String name;
+    private String imageUrl;
+    private String description;
+    private double price;
+    private int quantity;
+    private boolean favourited;
 
-    public ProductDAO(Connection conn) {
-        this.conn = conn;
+    public Product() {}
+
+    public Product(int productID, String name, String imageUrl, String description, double price, int quantity, boolean favourited) {
+        this.productID = productID;
+        this.name = name;
+        this.imageUrl = imageUrl;
+        this.description = description;
+        this.price = price;
+        this.quantity = quantity;
+        this.favourited = favourited;
     }
 
-    public List<ProductView> getAllProductViews() {
-        List<ProductView> products = new ArrayList<>();
-        String query = "SELECT p.*, c.categoryName, COALESCE(p.imageUrl, 'images/default.jpg') as imageUrl, " +
-                       "COALESCE(p.favourited, false) as favourited FROM PRODUCT p " +
-                       "LEFT JOIN CATEGORY c ON p.categoryID = c.categoryID";
-        try (PreparedStatement stmt = conn.prepareStatement(query);
-             ResultSet rs = stmt.executeQuery()) {
-
-            while (rs.next()) {
-                Product product = new Product(
-                        rs.getInt("ProductID"),
-                        rs.getString("Name"),
-                        rs.getInt("Stock"),
-                        rs.getBigDecimal("Price"),
-                        rs.getString("Description"),
-                        rs.getInt("CategoryID")
-                );
-
-                ProductView view = new ProductView(
-                        product,
-                        rs.getString("categoryName"),
-                        rs.getString("imageUrl"),
-                        rs.getBoolean("favourited")
-                );
-                products.add(view);
-            }
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-        return products;
+    public int getProductID() {
+        return productID;
     }
 
-    public void insertProduct(Product product, String imageUrl, boolean favourited) {
-        String query = "INSERT INTO PRODUCT (Name, Stock, Price, Description, CategoryID, imageUrl, favourited) " +
-                       "VALUES (?, ?, ?, ?, ?, ?, ?)";
-        try (PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setString(1, product.getName());
-            stmt.setInt(2, product.getStock());
-            stmt.setBigDecimal(3, product.getPrice());
-            stmt.setString(4, product.getDescription());
-            stmt.setInt(5, product.getCatID());
-            stmt.setString(6, imageUrl);
-            stmt.setBoolean(7, favourited);
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
+    public void setProductID(int productID) {
+        this.productID = productID;
     }
 
-    public void updateProduct(Product product, String imageUrl, boolean favourited) {
-        String query = "UPDATE PRODUCT SET Name = ?, Stock = ?, Price = ?, Description = ?, " +
-                       "CategoryID = ?, imageUrl = ?, favourited = ? WHERE ProductID = ?";
-        try (PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setString(1, product.getName());
-            stmt.setInt(2, product.getStock());
-            stmt.setBigDecimal(3, product.getPrice());
-            stmt.setString(4, product.getDescription());
-            stmt.setInt(5, product.getCatID());
-            stmt.setString(6, imageUrl);
-            stmt.setBoolean(7, favourited);
-            stmt.setInt(8, product.getProId());
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
+    public String getName() {
+        return name;
     }
 
-    public void deleteProduct(int productID) {
-        try (PreparedStatement stmt = conn.prepareStatement("DELETE FROM PRODUCT WHERE ProductID = ?")) {
-            stmt.setInt(1, productID);
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Product findProductById(int id) {
-        String query = "SELECT * FROM PRODUCT WHERE ProductID = ?";
-        try (PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setInt(1, id);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                return new Product(
-                        rs.getInt("ProductID"),
-                        rs.getString("Name"),
-                        rs.getInt("Stock"),
-                        rs.getBigDecimal("Price"),
-                        rs.getString("Description"),
-                        rs.getInt("CategoryID")
-                );
-            }
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-        return null;
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public boolean isFavourited() {
+        return favourited;
+    }
+
+    public void setFavourited(boolean favourited) {
+        this.favourited = favourited;
     }
 }

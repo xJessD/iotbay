@@ -1,104 +1,101 @@
-<%@page import="com.IoTBay.Models.Product"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.List"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="model.Product" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    Product product = (Product) request.getAttribute("product");
+    if (product == null) {
+%>
+    <p class="text-center mt-5 text-danger">Product not found.</p>
+<%
+        return;
+    }
+%>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Manage Products</title>
+    <title>Edit Product</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/webapp/css.css">
+    <style>
+        .edit-card {
+            max-width: 500px;
+            margin: 3rem auto;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .edit-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+        }
+
+        .edit-card .price {
+            color: #F96E46;
+            font-weight: bold;
+        }
+
+        .edit-card form .form-group {
+            text-align: left;
+        }
+
+        .edit-card .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+    </style>
 </head>
 <body>
 <%@ include file="/WEB-INF/jspf/header.jspf" %>
 
-<main class="container mt-5">
-    <h2 class="text-center mb-4">IoTBay Product Management</h2>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Edit Product</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form action="${pageContext.request.contextPath}/Product/edit" method="post">
+                <input type="hidden" name="ProductID" value="<%= product.getProductID() %>" />
 
-    <div class="row">
-        <!-- Add Product Form -->
-        <div class="col-md-6 mb-4">
-            <form action="../Products/add" method="post" id="addProductform" class="border p-4 rounded bg-light">
-                <h5 class="mb-3">Add Product</h5>
                 <div class="form-group">
                     <label>Name</label>
-                    <input class="form-control" type="text" name="Name" required />
+                    <input type="text" name="Name" class="form-control" value="<%= product.getName() %>" required>
                 </div>
+
                 <div class="form-group">
-                    <label>Stock</label>
-                    <input class="form-control" type="number" name="Stock" required />
+                    <label>Image URL</label>
+                    <input type="text" name="imageUrl" class="form-control" value="<%= product.getImageUrl() %>">
                 </div>
-                <div class="form-group">
-                    <label>Price</label>
-                    <input class="form-control" type="text" name="Price" required />
-                </div>
+
                 <div class="form-group">
                     <label>Description</label>
-                    <textarea class="form-control" name="Description" rows="3" required></textarea>
+                    <textarea name="Description" class="form-control" rows="3"><%= product.getDescription() %></textarea>
                 </div>
-                <div class="form-group">
-                    <label>Category ID</label>
-                    <input class="form-control" type="text" name="CategoryID" required />
-                </div>
-                <button type="submit" class="btn btn-success">Add Product</button>
-                <button type="reset" class="btn btn-danger">Reset</button>
-            </form>
-        </div>
 
-        <!-- Delete Product Form -->
-        <div class="col-md-6 mb-4">
-            <form action="../Products/delete" method="post" id="deleteProductform" class="border p-4 rounded bg-light">
-                <h5 class="mb-3">Delete Product</h5>
                 <div class="form-group">
-                    <label>Product ID</label>
-                    <input class="form-control" type="text" name="ProductID" required />
+                    <label>Price</label>
+                    <input type="number" step="0.01" name="Price" class="form-control" value="<%= product.getPrice() %>" required>
                 </div>
-                <button type="submit" class="btn btn-danger">Delete Product</button>
+
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <input type="number" name="Stock" class="form-control" value="<%= product.getQuantity() %>" required>
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" name="favourited" class="form-check-input" id="favouriteCheck"
+                        <%= product.isFavourited() ? "checked" : "" %>>
+                    <label class="form-check-label" for="favouriteCheck">Mark as Favourite</label>
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-success">Update Product</button>
+                    <a href="${pageContext.request.contextPath}/ManageProduct.jsp" class="btn btn-secondary">Cancel</a>
+                </div>
             </form>
         </div>
     </div>
-
-    <div class="mt-5">
-        <h4 class="text-center">Product Inventory</h4>
-        <%
-            List<Product> products = (ArrayList<Product>) request.getAttribute("products");
-        %>
-        <% if (products == null || products.isEmpty()) { %>
-            <h5 class="text-center mt-4">No Products Found.</h5>
-        <% } else { %>
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Product ID</th>
-                        <th>Name</th>
-                        <th>Stock</th>
-                        <th>Price</th>
-                        <th>Description</th>
-                        <th>Category ID</th>
-                        <th>Edit</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% for (Product product : products) { %>
-                    <tr>
-                        <td><%= product.getProId() %></td>
-                        <td><%= product.getName() %></td>
-                        <td><%= product.getStock() %></td>
-                        <td>$<%= product.getPrice() %></td>
-                        <td><%= product.getDescription() %></td>
-                        <td><%= product.getCatID() %></td>
-                        <td>
-                            <a href="../EditProduct.jsp?productID=<%= product.getProId() %>" class="btn btn-sm btn-success">Edit</a>
-                        </td>
-                    </tr>
-                    <% } %>
-                </tbody>
-            </table>
-        </div>
-        <% } %>
-    </div>
-</main>
-
+</div>
 </body>
 </html>
