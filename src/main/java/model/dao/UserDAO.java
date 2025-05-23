@@ -29,11 +29,27 @@ public class UserDAO {
          String firstName = rs.getString("firstName");
          String lastName = rs.getString("lastName");
          String phoneNumber = rs.getString("phoneNumber");
+         String accountType = rs.getString("role");
+         Date createdDate = rs.getDate("createdDate");
+         Date updatedDate = rs.getDate("lastUpdated");
+         int userID = rs.getInt("userID");
 
-         return new User(firstName, lastName, email, password, phoneNumber);
+         User newUser = new User(firstName, lastName, email, password, phoneNumber);
+         newUser.setAccountType(accountType);
+         newUser.setCreatedDate(createdDate);
+         newUser.setUpdatedDate(updatedDate);
+         newUser.setUserID(userID);
+
+         return newUser;
       }
 
       return null;
+   }
+
+   public boolean emailExists(String email) throws SQLException {
+      String fetch = "SELECT * FROM User WHERE email = '" + email + "'";
+      ResultSet rs = st.executeQuery(fetch);
+      return rs.next();
    }
 
    // Add a user-data into the database
@@ -51,10 +67,17 @@ public class UserDAO {
 
    }
 
+   public void updateUser(User user) throws SQLException {
+      updateUser(user.getFirstName(), user.getLastName(), user.getEmail(), user.getPassword(), user.getPhoneNumber());
+   }
+
    // delete a user from the database
    public void deleteUser(String email) throws SQLException {
       st.execute("Delete FROM User WHERE email = '" + email + "'");
 
    }
 
+   public void deleteUser(int userID) throws SQLException {
+      st.executeUpdate("DELETE FROM User WHERE userID = " + userID);
+   }
 }

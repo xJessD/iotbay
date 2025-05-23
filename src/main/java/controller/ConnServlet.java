@@ -22,6 +22,8 @@ public class ConnServlet extends HttpServlet {
 
     private UserDAO manager;
 
+    private AccessLogDAO accessLog;
+
     private Connection conn;
 
     @Override // Create and instance of DBConnector for the deployment session
@@ -55,16 +57,17 @@ public class ConnServlet extends HttpServlet {
         try {
 
             manager = new UserDAO(conn);
+            accessLog = new AccessLogDAO(conn);
+
+            // Make sure to set both manager and accessLog as session attributes
+            session.setAttribute("manager", manager);
+            session.setAttribute("accessLog", accessLog);
 
         } catch (SQLException ex) {
 
             Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
 
         }
-
-        // export the DB manager to the view-session (JSPs)
-
-        session.setAttribute("manager", manager);
 
     }
 
