@@ -1,19 +1,12 @@
 package controller;
-
 import java.io.IOException;
-
 import java.sql.Connection;
-
 import java.sql.SQLException;
-
 import java.util.logging.Level;
-
 import java.util.logging.Logger;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
-
 import jakarta.servlet.http.HttpServletRequest;
 
 import jakarta.servlet.http.HttpServletResponse;
@@ -27,7 +20,7 @@ public class ConnServlet extends HttpServlet {
 
     private DBConnector db;
 
-    private DBManager manager;
+    private UserDAO manager;
 
     private Connection conn;
 
@@ -61,7 +54,7 @@ public class ConnServlet extends HttpServlet {
 
         try {
 
-            manager = new DBManager(conn);
+            manager = new UserDAO(conn);
 
         } catch (SQLException ex) {
 

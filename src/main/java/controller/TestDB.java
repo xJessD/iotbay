@@ -20,9 +20,20 @@ public class TestDB {
 
             Connection conn = connector.openConnection();
 
-            DBManager db = new DBManager(conn);
+            UserDAO db = new UserDAO(conn);
 
             User user = db.findUser("test@t.com", "123456");
+
+            db.deleteUser("jw@hello.com");
+
+            db.addUser("Jane", "Watson", "jw@hello.com", "123456", "");
+
+            User user2 = db.findUser("jw@hello.com", "123456");
+
+            System.out.println("User found: " + user2.getFirstName());
+
+            
+
 
             connector.closeConnection();
 

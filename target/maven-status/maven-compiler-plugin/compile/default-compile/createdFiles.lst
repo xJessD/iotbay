@@ -9,9 +9,10 @@ model\Payment.class
 model\Staff.class
 model\Order.class
 model\Shipment.class
+model\dao\UserDAO.class
 model\Product.class
 controller\TestDB.class
-model\dao\DBManager.class
+controller\LogoutServlet.class
 model\OrderLine.class
 model\Customer.class
 model\User.class
