@@ -59,6 +59,22 @@ public class PaymentDAO {
         return paymentID;
     }
     
+    // Overloaded createPayment method that accepts a Payment object
+    public int createPayment(Payment payment) throws SQLException {
+        return createPayment(
+            payment.getOrderID(),
+            payment.getCustomerID(),
+            payment.getPaymentDate(),
+            payment.getPaymentMethod(),
+            payment.getPaymentAmount(),
+            payment.getBillingStreetAddress(),
+            payment.getBillingPostcode(),
+            payment.getBillingCity(),
+            payment.getBillingState(),
+            payment.getBillingPhoneNumber()
+        );
+    }
+    
     // Get payment by ID
     public Payment getPayment(int paymentID) throws SQLException {
         String query = "SELECT * FROM Payment WHERE paymentID = ?";
@@ -106,6 +122,37 @@ public class PaymentDAO {
                 rs.getInt("paymentID"),
                 rs.getInt("orderID"),
                 customerID,
+                new Date(rs.getDate("paymentDate").getTime()),
+                rs.getString("paymentMethod"),
+                rs.getString("paymentAmount"),
+                rs.getString("billingStreetAddress"),
+                rs.getString("billingPostcode"),
+                rs.getString("billingCity"),
+                rs.getString("billingState"),
+                rs.getString("billingPhoneNumber"),
+                new Date(rs.getDate("createdDate").getTime()),
+                new Date(rs.getDate("updatedDate").getTime())
+            ));
+        }
+        
+        ps.close();
+        return payments;
+    }
+    
+    // Get all payments for an order
+    public List<Payment> getPaymentsByOrder(int orderID) throws SQLException {
+        String query = "SELECT * FROM Payment WHERE orderID = ? ORDER BY paymentDate DESC";
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setInt(1, orderID);
+        
+        ResultSet rs = ps.executeQuery();
+        List<Payment> payments = new ArrayList<>();
+        
+        while (rs.next()) {
+            payments.add(new Payment(
+                rs.getInt("paymentID"),
+                orderID,
+                rs.getInt("customerID"),
                 new Date(rs.getDate("paymentDate").getTime()),
                 rs.getString("paymentMethod"),
                 rs.getString("paymentAmount"),
@@ -182,6 +229,20 @@ public class PaymentDAO {
         return rowsUpdated > 0;
     }
     
+    // Overloaded updatePayment method that accepts a Payment object
+    public boolean updatePayment(Payment payment) throws SQLException {
+        return updatePayment(
+            payment.getPaymentID(),
+            payment.getPaymentMethod(),
+            payment.getPaymentAmount(),
+            payment.getBillingStreetAddress(),
+            payment.getBillingPostcode(),
+            payment.getBillingCity(),
+            payment.getBillingState(),
+            payment.getBillingPhoneNumber()
+        );
+    }
+    
     // Delete payment record
     public boolean deletePayment(int paymentID) throws SQLException {
         String query = "DELETE FROM Payment WHERE paymentID = ?";
@@ -192,5 +253,24 @@ public class PaymentDAO {
         ps.close();
         
         return rowsDeleted > 0;
+    }
+    
+    // Helper method to convert ResultSet row to Payment object
+    private Payment resultSetToPayment(ResultSet rs) throws SQLException {
+        return new Payment(
+            rs.getInt("paymentID"),
+            rs.getInt("orderID"),
+            rs.getInt("customerID"),
+            new Date(rs.getDate("paymentDate").getTime()),
+            rs.getString("paymentMethod"),
+            rs.getString("paymentAmount"),
+            rs.getString("billingStreetAddress"),
+            rs.getString("billingPostcode"),
+            rs.getString("billingCity"),
+            rs.getString("billingState"),
+            rs.getString("billingPhoneNumber"),
+            new Date(rs.getDate("createdDate").getTime()),
+            new Date(rs.getDate("updatedDate").getTime())
+        );
     }
 }

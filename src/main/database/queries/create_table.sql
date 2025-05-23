@@ -14,3 +14,20 @@ CREATE TABLE User (
     lastUpdated DATE DEFAULT CURRENT_TIMESTAMP,
     role VARCHAR(20)
 );
+
+CREATE TABLE Payment (
+    paymentID INTEGER PRIMARY KEY AUTOINCREMENT,
+    orderID INTEGER,
+    customerID INTEGER,
+    paymentDate DATE,
+    paymentMethod VARCHAR(50),
+    paymentAmount VARCHAR(20),
+    billingStreetAddress VARCHAR(100),
+    billingPostcode VARCHAR(10),
+    billingCity VARCHAR(50),
+    billingState VARCHAR(50),
+    billingPhoneNumber VARCHAR(20),
+    createdDate DATE DEFAULT CURRENT_TIMESTAMP,
+    updatedDate DATE DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (customerID) REFERENCES User(userID)
+);
