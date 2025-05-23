@@ -1,4 +1,4 @@
-package com.IoTBay.Models;
+package main.java.model;
 
 import java.io.Serializable;
 
@@ -45,7 +45,11 @@ public class Product implements Serializable {
     }
 
     public void setImageUrl(String imageUrl) {
+    if (imageUrl == null || imageUrl.trim().isEmpty()) {
+        this.imageUrl = "Images/Products/DefaultImage.jpg";
+    } else {
         this.imageUrl = imageUrl;
+    }
     }
 
     public String getDescription() {

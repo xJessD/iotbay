@@ -1,4 +1,4 @@
-<%@ page import="model.Product" %>
+<%@ page import="model.ProductCatalog" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     Product product = (Product) request.getAttribute("product");

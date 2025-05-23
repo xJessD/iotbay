@@ -35,33 +35,33 @@ public class AddProductController extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ServletException {
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        throws IOException, ServletException {
 
-        try {
-            String name = request.getParameter("Name");
-            int quantity = Integer.parseInt(request.getParameter("Stock"));
-            double price = Double.parseDouble(request.getParameter("Price"));
-            String description = request.getParameter("Description");
-            String imageUrl = request.getParameter("imageUrl");
-            boolean favourited = request.getParameter("favourited") != null;
+    try {
+        String name = request.getParameter("Name");
+        int quantity = Integer.parseInt(request.getParameter("Stock"));
+        double price = Double.parseDouble(request.getParameter("Price"));
+        String description = request.getParameter("Description");
+        String imageUrl = request.getParameter("imageUrl"); // may be blank
+        boolean favourited = request.getParameter("favourited") != null;
 
-            Product product = new Product(
-                    -1, // temporary ID for new product
-                    name,
-                    imageUrl != null && !imageUrl.isEmpty() ? imageUrl : "images/default.jpg",
-                    description,
-                    price,
-                    quantity,
-                    favourited
-            );
+        Product product = new Product(
+                -1, // temporary ID
+                name,
+                imageUrl, // Product will handle default
+                description,
+                price,
+                quantity,
+                favourited
+        );
 
-            productDAO.add(product);
+        productDAO.add(product);
+        response.sendRedirect(request.getContextPath() + "/productManage.jsp");
 
-            response.sendRedirect(request.getContextPath() + "/productManage.jsp");
-        } catch (Exception e) {
-            request.setAttribute("error", "Failed to add product: " + e.getMessage());
-            request.getRequestDispatcher("/productManage.jsp").forward(request, response);
+    } catch (Exception e) {
+        request.setAttribute("error", "Failed to add product: " + e.getMessage());
+        request.getRequestDispatcher("/productManage.jsp").forward(request, response);
         }
     }
 }

@@ -1,6 +1,6 @@
 package main.java.model.dao;
 
-import main.java.model.ProductCatalog;
+import main.java.model.Product;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -23,10 +23,12 @@ public class ProductDAO {
              ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
+                String rawImageUrl = rs.getString("imageUrl");
+
                 Product product = new Product(
                     rs.getInt("productID"),
                     rs.getString("name"),
-                    rs.getString("imageUrl"),
+                    rawImageUrl,
                     rs.getString("description"),
                     rs.getDouble("price"),
                     rs.getInt("quantity"),
@@ -103,10 +105,12 @@ public class ProductDAO {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
+                String rawImageUrl = rs.getString("imageUrl");
+
                 return new Product(
                     rs.getInt("productID"),
                     rs.getString("name"),
-                    rs.getString("imageUrl"),
+                    rawImageUrl,
                     rs.getString("description"),
                     rs.getDouble("price"),
                     rs.getInt("quantity"),

@@ -1,25 +1,11 @@
-<%@ page import="java.util.*, main.java.model.ProductCatalog" %>
+<%@ page import="main.java.model.ProductCatalog" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    List<Product> products = new ArrayList<>();
-    for (int i = 1; i <= 15; i++) {
-        products.add(new Product(
-            i,
-            "Product " + i,
-            "images/sample" + ((i % 5) + 1) + ".jpg",     // imageUrl
-            "This is a great IoT device #" + i,
-            19.99 + i,                                    // price
-            10 + (i % 5),                                 // quantity
-            i % 3 == 0                                    // favourited
-        ));
-    }
-    request.setAttribute("products", products);
-%>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Product Catalog</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/webapp/css.css">
     <style>
         .product-grid {
             display: grid;
@@ -61,23 +47,21 @@
 <div class="container mt-5">
     <h2 class="text-center mb-4">IoTBay Products</h2>
     <div class="product-grid">
-        <%
-            for (Product p : products) {
-        %>
-        <div class="product-card">
-            <div class="favourite-icon">
-                <%= p.isFavourited() ? "❤️" : "♡" %>
+        <c:forEach var="p" items="${products}">
+            <div class="product-card">
+                <div class="favourite-icon">
+                    ${p.favourited ? "❤️" : "♡"}
+                </div>
+                <img src="${pageContext.request.contextPath}/${p.imageUrl}" alt="${p.name}">
+                <h5>${p.name}</h5>
+                <p>${p.description}</p>
+                <p class="price">$${p.price}</p>
+                <p>In Stock: ${p.quantity}</p>
+                <button class="btn btn-success" ${p.quantity == 0 ? "disabled" : ""}>
+                    ${p.quantity == 0 ? "Out of Stock" : "Buy Now"}
+                </button>
             </div>
-            <img src="<%= p.getImageUrl() %>" alt="<%= p.getName() %>">
-            <h5><%= p.getName() %></h5>
-            <p><%= p.getDescription() %></p>
-            <p class="price">$<%= String.format("%.2f", p.getPrice()) %></p>
-            <p>In Stock: <%= p.getQuantity() %></p>
-            <button class="btn btn-success" <%= p.getQuantity() == 0 ? "disabled" : "" %>>
-                <%= p.getQuantity() == 0 ? "Out of Stock" : "Buy Now" %>
-            </button>
-        </div>
-        <% } %>
+        </c:forEach>
     </div>
 </div>
 </body>

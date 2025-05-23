@@ -1,5 +1,5 @@
-<%@ page import="model.Product" %>
-<%@ page import="java.util.*" %>
+<%@ page import="model.ProductCatalog" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -44,29 +44,30 @@
     </div>
 
     <div class="product-grid">
-        <%
-            List<Product> products = (List<Product>) request.getAttribute("products");
-            if (products != null && !products.isEmpty()) {
-                for (Product product : products) {
-        %>
-        <div class="product-card">
-            <img src="<%= product.getImageUrl() %>" alt="<%= product.getName() %>">
-            <h5><%= product.getName() %></h5>
-            <p><%= product.getDescription() %></p>
-            <p class="price">$<%= String.format("%.2f", product.getPrice()) %></p>
-            <p>Quantity: <%= product.getQuantity() %></p>
-            <p>Favourited: <%= product.isFavourited() ? "❤️" : "No" %></p>
-            <div class="btn-group mt-2">
-                <a href="editproduct.jsp?productID=<%= product.getProductID() %>" class="btn btn-primary btn-sm">Edit</a>
-                <form action="products/delete" method="post" style="display:inline;">
-                    <input type="hidden" name="ProductID" value="<%= product.getProductID() %>" />
-                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                </form>
-            </div>
-        </div>
-        <% } } else { %>
-        <p>No products available.</p>
-        <% } %>
+        <c:choose>
+            <c:when test="${not empty products}">
+                <c:forEach var="product" items="${products}">
+                    <div class="product-card">
+                        <img src="${pageContext.request.contextPath}/${product.imageUrl}" alt="${product.name}">
+                        <h5>${product.name}</h5>
+                        <p>${product.description}</p>
+                        <p class="price">$${product.price}</p>
+                        <p>Quantity: ${product.quantity}</p>
+                        <p>Favourited: ${product.favourited ? "❤️" : "No"}</p>
+                        <div class="btn-group mt-2">
+                            <a href="editproduct.jsp?productID=${product.productID}" class="btn btn-primary btn-sm">Edit</a>
+                            <form action="products/delete" method="post" style="display:inline;">
+                                <input type="hidden" name="productID" value="${product.productID}" />
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </c:forEach>
+            </c:when>
+            <c:otherwise>
+                <p>No products available.</p>
+            </c:otherwise>
+        </c:choose>
     </div>
 </div>
 </body>
