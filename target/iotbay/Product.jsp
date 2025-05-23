@@ -1,0 +1,84 @@
+<%@ page import="java.util.*, main.java.model.ProductCatalog" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    List<Product> products = new ArrayList<>();
+    for (int i = 1; i <= 15; i++) {
+        products.add(new Product(
+            i,
+            "Product " + i,
+            "images/sample" + ((i % 5) + 1) + ".jpg",     // imageUrl
+            "This is a great IoT device #" + i,
+            19.99 + i,                                    // price
+            10 + (i % 5),                                 // quantity
+            i % 3 == 0                                    // favourited
+        ));
+    }
+    request.setAttribute("products", products);
+%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Catalog</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/bootstrap.css">
+    <style>
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: 160px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+        }
+        .product-card h5 {
+            margin-bottom: 0.5rem;
+        }
+        .product-card .price {
+            color: #F96E46;
+            font-weight: bold;
+        }
+        .favourite-icon {
+            font-size: 1.4rem;
+            color: #F96E46;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+        }
+    </style>
+</head>
+<body>
+<%@ include file="/WEB-INF/jspf/header.jspf" %>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">IoTBay Products</h2>
+    <div class="product-grid">
+        <%
+            for (Product p : products) {
+        %>
+        <div class="product-card">
+            <div class="favourite-icon">
+                <%= p.isFavourited() ? "❤️" : "♡" %>
+            </div>
+            <img src="<%= p.getImageUrl() %>" alt="<%= p.getName() %>">
+            <h5><%= p.getName() %></h5>
+            <p><%= p.getDescription() %></p>
+            <p class="price">$<%= String.format("%.2f", p.getPrice()) %></p>
+            <p>In Stock: <%= p.getQuantity() %></p>
+            <button class="btn btn-success" <%= p.getQuantity() == 0 ? "disabled" : "" %>>
+                <%= p.getQuantity() == 0 ? "Out of Stock" : "Buy Now" %>
+            </button>
+        </div>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>

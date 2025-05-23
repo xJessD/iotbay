@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class User implements Serializable {
+    private int customerID;
     private String firstName;
     private String lastName;
     private String email;
@@ -12,17 +13,40 @@ public class User implements Serializable {
     private Date createdDate;
     private Date updatedDate;
 
-    // Constructors
+    // Empty constructor
     public User() {}
 
-    public User(String firstName, String lastName, String email, String password, String phoneNumber) {
+    // Constructor without dates
+    public User(int customerID, String firstName, String lastName, String email, String password, String phoneNumber) {
+        this.customerID = customerID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.phoneNumber = phoneNumber;
-    } 
-    // Getters & Setters
+    }
+
+    // Constructor with dates
+    public User(int customerID, String firstName, String lastName, String email, String password, String phoneNumber, Date createdDate, Date updatedDate) {
+        this.customerID = customerID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
+    }
+
+    // Getters and Setters
+    public int getCustomerID() {
+        return customerID;
+    }
+
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -53,7 +77,7 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    } 
+    }
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -61,5 +85,21 @@ public class User implements Serializable {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Date getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(Date updatedDate) {
+        this.updatedDate = updatedDate;
     }
 }
