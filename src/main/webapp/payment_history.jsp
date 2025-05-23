@@ -187,9 +187,9 @@
                     </form>
                 </div>
                 
-                <div class="action-buttons">
+                <%-- <div class="action-buttons">
                     <a href="payment.jsp" class="btn">Add New Payment</a>
-                </div>
+                </div> --%>
                 
                 <% if (payments != null && !payments.isEmpty()) { 
                     SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
