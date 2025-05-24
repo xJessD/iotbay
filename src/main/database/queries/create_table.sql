@@ -25,6 +25,7 @@ CREATE TABLE Payment (
     billingCity VARCHAR(50),
     billingState VARCHAR(50),
     billingPhoneNumber VARCHAR(20),
+    paymentStatus VARCHAR(20) DEFAULT 'Pending',
     createdDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (customerID) REFERENCES User(userID)

@@ -88,8 +88,14 @@ public class PaymentServlet extends HttpServlet {
                 Payment payment = paymentDAO.getPayment(paymentID);
                 
                 if (payment != null) {
-                    request.setAttribute("payment", payment);
-                    request.getRequestDispatcher("edit_payment.jsp").forward(request, response);
+                    // Only allow editing if payment is in Pending status
+                    if ("Pending".equals(payment.getPaymentStatus())) {
+                        request.setAttribute("payment", payment);
+                        request.getRequestDispatcher("edit_payment.jsp").forward(request, response);
+                    } else {
+                        request.setAttribute("error", "Cannot edit a confirmed payment");
+                        request.getRequestDispatcher("payment.jsp").forward(request, response);
+                    }
                 } else {
                     request.setAttribute("error", "Payment not found");
                     request.getRequestDispatcher("payment.jsp").forward(request, response);
@@ -113,7 +119,7 @@ public class PaymentServlet extends HttpServlet {
                     request.setAttribute("action", "viewAll");
                     request.getRequestDispatcher("payment_history.jsp").forward(request, response);
                 } else {
-                    request.setAttribute("error", "Failed to delete payment");
+                    request.setAttribute("error", "Failed to delete payment. Confirmed payments cannot be deleted.");
                     request.getRequestDispatcher("payment.jsp").forward(request, response);
                 }
                 
@@ -132,6 +138,20 @@ public class PaymentServlet extends HttpServlet {
                 request.setAttribute("startDate", startDateStr);
                 request.setAttribute("endDate", endDateStr);
                 request.getRequestDispatcher("payment_history.jsp").forward(request, response);
+            } else if (action.equals("confirm")) {
+                // Confirm a payment (change status from Pending to Confirmed)
+                int paymentID = Integer.parseInt(request.getParameter("paymentID"));
+                boolean success = paymentDAO.confirmPayment(paymentID);
+                
+                if (success) {
+                    Payment payment = paymentDAO.getPayment(paymentID);
+                    request.setAttribute("payment", payment);
+                    request.setAttribute("message", "Payment confirmed successfully");
+                    request.getRequestDispatcher("payment_details.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("error", "Failed to confirm payment");
+                    request.getRequestDispatcher("payment.jsp").forward(request, response);
+                }
             }
             
         } catch (SQLException ex) {

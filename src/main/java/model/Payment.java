@@ -15,6 +15,7 @@ public class Payment implements Serializable {
     private String billingCity;
     private String billingState;
     private String billingPhoneNumber;
+    private String paymentStatus;
     private Date createdDate;
     private Date updatedDate;
 
@@ -23,7 +24,7 @@ public class Payment implements Serializable {
 
     public Payment(int paymentID, int orderID, int customerID, Date paymentDate, String paymentMethod,
             String paymentAmount, String billingStreetAddress, String billingPostcode, String billingCity,
-            String billingState, String billingPhoneNumber, Date createdDate, Date updatedDate) {
+            String billingState, String billingPhoneNumber, String paymentStatus, Date createdDate, Date updatedDate) {
         this.paymentID = paymentID;
         this.orderID = orderID;
         this.customerID = customerID;
@@ -35,6 +36,7 @@ public class Payment implements Serializable {
         this.billingCity = billingCity;
         this.billingState = billingState;
         this.billingPhoneNumber = billingPhoneNumber;
+        this.paymentStatus = paymentStatus;
         this.createdDate = createdDate;
         this.updatedDate = updatedDate;
     }
@@ -104,6 +106,12 @@ public class Payment implements Serializable {
     }
     public void setBillingPhoneNumber(String billingPhoneNumber) {
         this.billingPhoneNumber = billingPhoneNumber;
+    }
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
     }
     public Date getCreatedDate() {
         return createdDate;

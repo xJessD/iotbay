@@ -77,6 +77,14 @@
             background-color: #c82333;
         }
         
+        .btn-success {
+            background-color: #28a745;
+        }
+        
+        .btn-success:hover {
+            background-color: #218838;
+        }
+        
         .alert {
             padding: 10px 15px;
             margin-bottom: 20px;
@@ -201,6 +209,7 @@
                                 <th>Date</th>
                                 <th>Amount</th>
                                 <th>Method</th>
+                                <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -211,10 +220,14 @@
                                     <td><%= dateFormat.format(payment.getPaymentDate()) %></td>
                                     <td><%= payment.getPaymentAmount() %></td>
                                     <td><%= payment.getPaymentMethod() %></td>
+                                    <td><%= payment.getPaymentStatus() %></td>
                                     <td class="payment-actions">
                                         <a href="PaymentServlet?action=view&paymentID=<%= payment.getPaymentID() %>" class="btn">View</a>
-                                        <a href="PaymentServlet?action=edit&paymentID=<%= payment.getPaymentID() %>" class="btn btn-secondary">Edit</a>
-                                        <a href="javascript:confirmDelete(<%= payment.getPaymentID() %>)" class="btn btn-danger">Delete</a>
+                                        <% if ("Pending".equals(payment.getPaymentStatus())) { %>
+                                            <a href="PaymentServlet?action=edit&paymentID=<%= payment.getPaymentID() %>" class="btn btn-secondary">Edit</a>
+                                            <a href="PaymentServlet?action=confirm&paymentID=<%= payment.getPaymentID() %>" class="btn btn-success">Confirm</a>
+                                            <a href="javascript:confirmDelete(<%= payment.getPaymentID() %>)" class="btn btn-danger">Delete</a>
+                                        <% } %>
                                     </td>
                                 </tr>
                             <% } %>
