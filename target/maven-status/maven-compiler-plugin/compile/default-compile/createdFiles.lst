@@ -2,10 +2,12 @@ model\CartItem.class
 controller\UpdateAccountServlet.class
 model\Cart.class
 model\dao\DBConnector.class
+controller\ManageUsersServlet.class
 controller\DeleteAccountServlet.class
 model\Staff.class
 model\dao\PaymentDAO.class
 model\Product.class
+controller\UpdateUserServlet.class
 controller\PaymentServlet.class
 model\AccessLog.class
 model\Customer.class
@@ -21,10 +23,12 @@ controller\OrderServlet.class
 model\Payment.class
 model\Order.class
 model\Shipment.class
+controller\DeleteUserServlet.class
 model\dao\OrderDBSetup.class
 model\dao\UserDAO.class
 controller\TestDB.class
 model\dao\OrderDAO.class
+controller\DeleteLogServlet.class
 controller\LogoutServlet.class
 model\OrderLine.class
 controller\RegisterServlet.class

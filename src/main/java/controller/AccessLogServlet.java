@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 
 import jakarta.servlet.ServletException;
@@ -47,6 +48,14 @@ public class AccessLogServlet extends HttpServlet {
                 endDateTime = LocalDate.parse(endDateStr).atTime(LocalTime.MAX);
             }
 
+            // Validate that start date is not after end date
+            if (startDateTime != null && endDateTime != null && startDateTime.isAfter(endDateTime)) {
+                session.setAttribute("errorMessage", "Start date cannot be after end date.");
+                request.setAttribute("logs", accessLogDAO.getUserLogs(user.getUserID()));
+                request.getRequestDispatcher("logs.jsp").forward(request, response);
+                return;
+            }
+
             List<AccessLog> logs;
             if (startDateTime != null && endDateTime != null) {
                 logs = accessLogDAO.getUserLogsByDateRange(user.getUserID(), startDateTime, endDateTime);
@@ -57,7 +66,10 @@ public class AccessLogServlet extends HttpServlet {
             request.setAttribute("logs", logs);
         } catch (SQLException e) {
             e.printStackTrace();
-            request.setAttribute("errorMessage", "An error occurred while fetching access logs.");
+            session.setAttribute("errorMessage", "An error occurred while fetching access logs.");
+        } catch (DateTimeParseException e) {
+            e.printStackTrace();
+            session.setAttribute("errorMessage", "Invalid date format. Please use YYYY-MM-DD format.");
         }
 
         request.getRequestDispatcher("logs.jsp").forward(request, response);

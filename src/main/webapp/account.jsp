@@ -130,12 +130,14 @@
                     <div class="account-actions">
                         <a href="editAccount.jsp" class="button">Edit Account Details</a>
                         <a href="accessLogs" class="button">View Access Logs</a>
-                        <a href="deleteAccount.jsp" class="button danger">Delete Account</a>
+                        <% if ("Staff".equals(user.getAccountType()) || "Customer".equals(user.getAccountType())) { %>
+                            <a href="deleteAccount.jsp" class="button danger">Delete Account</a>
+                        <% } %>
                     </div>
 
                     <% if ("Admin".equals(user.getAccountType()) || "Staff".equals(user.getAccountType())) { %>
                         <div class="admin-actions">
-                            <a href="manageUsers.jsp" class="button">Manage Users</a>
+                            <a href="ManageUsersServlet" class="button">Manage Users</a>
                         </div>
                     <% } %>
                 <% } %>
