@@ -14,6 +14,11 @@
 
         <main> <!-- Please put all content inside the main tags -->
             <section style="text-align: center; padding: 50px;">
+                <% if (session.getAttribute("successMessage") != null) { %>
+                    <div class="success-message"><%= session.getAttribute("successMessage") %></div>
+                    <% session.removeAttribute("successMessage"); %>
+                <% } %>
+
                 <h1>Welcome to IoTBay!</h1>
                 <p>Your one-stop shop for IoT devices and solutions.</p>
 

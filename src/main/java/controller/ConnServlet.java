@@ -23,6 +23,7 @@ public class ConnServlet extends HttpServlet {
     private UserDAO manager;
 
     private AccessLogDAO accessLog;
+    private PaymentDAO paymentManager;
 
     private Connection conn;
 
@@ -62,12 +63,18 @@ public class ConnServlet extends HttpServlet {
             // Make sure to set both manager and accessLog as session attributes
             session.setAttribute("manager", manager);
             session.setAttribute("accessLog", accessLog);
+            paymentManager = new PaymentDAO(conn);
 
         } catch (SQLException ex) {
 
             Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
 
         }
+
+        // export the DB managers to the view-session (JSPs)
+
+        session.setAttribute("manager", manager);
+        session.setAttribute("paymentDAO", paymentManager);
 
     }
 

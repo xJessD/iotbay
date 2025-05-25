@@ -2,10 +2,6 @@ package model.dao;
 
 import model.User;
 import java.sql.*;
-/* 
-* UserDAO is the primary DAO class to interact with the database.
-* Complete the existing methods of this classes to perform CRUD operations with the db.
-*/
 
 public class UserDAO {
 
@@ -17,14 +13,10 @@ public class UserDAO {
 
    // Find user by email and password in the database
    public User findUser(String email, String password) throws SQLException {
-
       String query = "SELECT * FROM User WHERE email = '" + email + "' AND password = '" + password + "'";
-
-      // execute this query using the statement field
 
       ResultSet rs = st.executeQuery(query);
 
-      // search the ResultSet for a user using the parameters
       if (rs.next()) {
          String firstName = rs.getString("firstName");
          String lastName = rs.getString("lastName");
@@ -56,15 +48,21 @@ public class UserDAO {
    public void addUser(String firstName, String lastName, String email, String password, String phoneNumber) throws SQLException { 
       st.executeUpdate("INSERT INTO User (firstName, lastName, email, password, phoneNumber) VALUES ('"
             + firstName + "', '" + lastName + "', '" + email + "', '" + password + "', '" + phoneNumber + "')");
-
    }
+
+   // Add a user-data into the database with account type
+   public void addUser(String firstName, String lastName, String email, String password, String phoneNumber, String accountType) throws SQLException {
+      st.executeUpdate("INSERT INTO User (firstName, lastName, email, password, phoneNumber, role) VALUES ('"
+            + firstName + "', '" + lastName + "', '" + email + "', '" + password + "', '" + phoneNumber + "', '" + accountType + "')");
+   }
+
+
 
    // update a user details in the database
    public void updateUser(String firstName, String lastName, String email, String password, String phoneNumber)
          throws SQLException {
-            st.executeUpdate("UPDATE User SET firstName = '" + firstName + "', lastName = '" + lastName + "', email = '"
-                  + email + "', password = '" + password + "', phoneNumber = '" + phoneNumber + "' WHERE email = '" + email + "'");
-
+      st.executeUpdate("UPDATE User SET firstName = '" + firstName + "', lastName = '" + lastName + "', email = '"
+            + email + "', password = '" + password + "', phoneNumber = '" + phoneNumber + "' WHERE email = '" + email + "'");
    }
 
    public void updateUser(User user) throws SQLException {
@@ -73,8 +71,7 @@ public class UserDAO {
 
    // delete a user from the database
    public void deleteUser(String email) throws SQLException {
-      st.execute("Delete FROM User WHERE email = '" + email + "'");
-
+      st.execute("DELETE FROM User WHERE email = '" + email + "'");
    }
 
    public void deleteUser(int userID) throws SQLException {

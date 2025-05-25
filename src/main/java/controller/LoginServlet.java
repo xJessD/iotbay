@@ -70,6 +70,10 @@ public class LoginServlet extends HttpServlet {
             if (user != null) {
                 // User found - successful login
                 session.setAttribute("user", user);
+    
+                // Clear any error messages and set success message
+                session.removeAttribute("errorMessage");
+                session.setAttribute("successMessage", "Login successful!");
 
                 // Log the login time
                 LocalDateTime now = LocalDateTime.now();

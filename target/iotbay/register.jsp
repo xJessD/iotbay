@@ -121,8 +121,8 @@
                     </div>
                     
                     <div class="checkbox-group">
-                        <label for="TOS">TOS: </label>
-                        <input type="checkbox" name="TOS"/>
+                        <label for="isStaff">Register as Staff: </label>
+                        <input type="checkbox" id="isStaff" name="isStaff"/>
                     </div>
 
                     <button type="submit" class="form-button">Register</button>

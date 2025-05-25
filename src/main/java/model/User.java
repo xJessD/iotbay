@@ -15,17 +15,30 @@ public class User implements Serializable {
     private int userID;
 
     
-    // Constructors
+    // Empty constructor
     public User() {}
 
+    // Constructor without dates
     public User(String firstName, String lastName, String email, String password, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.phoneNumber = phoneNumber;
-    } 
-    // Getters & Setters
+    }
+
+    // Constructor with dates
+    public User(String firstName, String lastName, String email, String password, String phoneNumber, Date createdDate, Date updatedDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
+    }
+
+    // Getters and Setters
     public String getFirstName() {
         return firstName;
     }
@@ -56,7 +69,7 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    } 
+    }
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -90,8 +103,8 @@ public class User implements Serializable {
         this.updatedDate = updatedDate;
     }
 
-    public void setUserID(int userID2) {
-        this.userID = userID2;
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
     public int getUserID() {
         return userID;
