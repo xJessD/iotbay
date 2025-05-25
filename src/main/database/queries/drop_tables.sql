@@ -1,1 +1,2 @@
 DROP TABLE User;
+DROP TABLE AccessLog;

@@ -1,6 +1,6 @@
 <html>
     <%
-        String errorMessage = request.getParameter("error");
+        String errorMessage = (String)session.getAttribute("errorMessage");
     %>
 
     <head>

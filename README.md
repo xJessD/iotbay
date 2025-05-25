@@ -54,10 +54,11 @@ software application data model (JavaBeans).
 
 ## Notes
 ### To Run
-- Run "mvn clean comiple package" in the terminal
+- Run "mvn clean compile package" in the terminal
 - Deploy .war file on the server
 - View using http://localhost:8080/iotbay/, or through server actions. 
 
+#
 ### Environment Setup
 
 - Java Runtime - JavaSE-17

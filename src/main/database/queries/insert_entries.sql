@@ -1,12 +1,21 @@
-INSERT INTO User (firstName, lastName, email, password, phoneNumber, role) VALUES ("James", "Qu", "test@t.com", "123456", "", "Customer");
 INSERT INTO User (firstName, lastName, email, password, phoneNumber, role) VALUES ("John", "Smith", "jsmith@gmail.com", "JOHN234352", "12345678", "Customer");
 INSERT INTO User (firstName, lastName, email, password, phoneNumber, role) VALUES ("Jess", "D", "test@gmail.com", "JxDx", "12345678", "Customer");
 INSERT INTO User (firstName, lastName, email, password, phoneNumber, role) VALUES ("Alice", "Johnson", "ajohnson@email.com", "AlicePass123", 87654321, "Customer");
 INSERT INTO User (firstName, lastName, email, password, phoneNumber, role) VALUES ("Bob", "Williams", "bwilliams@email.com", "BobSecure456", 23456789, "Customer");
 
+INSERT INTO User (firstName, lastName, email, password, phoneNumber, role) VALUES ("Test", "Admin", "test@t.com", "123456", "", "Admin");
 INSERT INTO User (firstName, lastName, email, password, phoneNumber, role) VALUES ("David", "Lee", "dlee@iotbay.com", "DavidSecure789", 98765432, "Staff");
 INSERT INTO User (firstName, lastName, email, password, phoneNumber, role) VALUES ("Jess", "D", "admin@gmail.com", "admin", 12345678, "Admin");
 INSERT INTO User (firstName, lastName, email, password, phoneNumber, role) VALUES ("Emily", "Wilson", "ewilson@iotbay.com", "EmilySecret567", 65432109, "Staff");
+
+
+-- Sample AccessLog Data
+
+INSERT INTO AccessLog (userID, loginDateTime, logoutDateTime) VALUES ('5', '2025-05-23T15:06:27.580112800', '2025-05-23T17:46:52.430521900')
+INSERT INTO AccessLog (userID, loginDateTime, logoutDateTime) VALUES ('5', '2025-05-23T13:23:44.523935900', '2025-05-23T13:24:16.564531')
+INSERT INTO AccessLog (userID, loginDateTime, logoutDateTime) VALUES ('5', '2025-05-22T17:37:52.000160600', '2025-05-22T17:46:52.430521900')
+INSERT INTO AccessLog (userID, loginDateTime, logoutDateTime) VALUES ('5', '22025-05-23T05:33:40.761680100', '2025-05-23T13:24:16.564531')
+
 
 -- Sample Payment data
 INSERT INTO Payment (orderID, customerID, paymentDate, paymentMethod, paymentAmount, billingStreetAddress, billingPostcode, billingCity, billingState, billingPhoneNumber, createdDate, updatedDate)
