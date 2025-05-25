@@ -95,8 +95,10 @@ public class RegisterServlet extends HttpServlet {
                     user.getPhoneNumber(), user.getAccountType());
             // 5- Clear any error messages and set success message
             session.removeAttribute("errorMessage");
-            session.setAttribute("successMessage", "Registration successful. Please log in.");
-            response.sendRedirect("/iotbay/login.jsp");
+            // Store user details in session for confirmation page
+            session.setAttribute("registeredUser", user);
+            session.setAttribute("successMessage", "Registration successful. Please review your details below.");
+            response.sendRedirect("/iotbay/registerConfirmation.jsp");
             return;
         } catch (SQLException ex) {
             Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);

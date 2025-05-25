@@ -20,9 +20,8 @@ A Java Web App, created for 41025 Introduction to Software Development.
 | Login Page         | Done               |
 | Register Page      | Done               |
 | Welcome Page	     | Done               |
-| Main Page          |                    |
 | Logout Page        | Done               |
-| Data Model         | Started            |
+| Data Model         | Done               |
 
 <!--
 >- **Landing page** – Implement the landing page or home
@@ -57,6 +56,17 @@ software application data model (JavaBeans).
 - Run "mvn clean compile package" in the terminal
 - Deploy .war file on the server
 - View using http://localhost:8080/iotbay/, or through server actions. 
+
+``` 
+Admin Testing Account
+Email test@t.com    
+Password: 12345678  
+
+Customer Testing Account
+Email: customer@iotbay.com
+Password: 12345678
+
+```
 
 #
 ### Environment Setup

@@ -7,10 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AccessLogDAO {
+    private Statement st;
     private Connection conn;
     
-    public AccessLogDAO(Connection conn) {
+    public AccessLogDAO(Connection conn) throws SQLException {
         this.conn = conn;
+        st = conn.createStatement();
     }
     
     public void addAccessLog(AccessLog log) throws SQLException {
@@ -78,5 +80,42 @@ public class AccessLogDAO {
             }
         }
         return logs;
+    }
+
+    /**
+     * Delete a specific log entry by ID
+     * @param logId The ID of the log to delete
+     * @throws SQLException if a database error occurs
+     */
+    public void deleteLog(int logId) throws SQLException {
+        String query = "DELETE FROM AccessLog WHERE id = ?";
+        try (PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, logId);
+            stmt.executeUpdate();
+        }
+    }
+    
+    /**
+     * Delete all log entries for a specific user
+     * @param userId The ID of the user whose logs should be deleted
+     * @throws SQLException if a database error occurs
+     */
+    public void deleteAllUserLogs(int userId) throws SQLException {
+        String query = "DELETE FROM AccessLog WHERE userId = ?";
+        try (PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, userId);
+            stmt.executeUpdate();
+        }
+    }
+    
+    /**
+     * Delete all log entries in the system (admin only)
+     * @throws SQLException if a database error occurs
+     */
+    public void deleteAllLogs() throws SQLException {
+        String query = "DELETE FROM AccessLog";
+        try (Statement stmt = conn.createStatement()) {
+            stmt.executeUpdate(query);
+        }
     }
 }
