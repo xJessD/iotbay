@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="model.ProductTest" time="0.106" tests="14" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="model.ProductTest" time="0.002" tests="14" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="AU"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17\bin"/>
-    <property name="sun.java.command" value="C:\Users\xJessD\AppData\Local\Temp\surefire11170116611407858747\surefirebooter14443435352772186796.jar C:\Users\xJessD\AppData\Local\Temp\surefire11170116611407858747 2025-05-23T17-45-34_374-jvmRun1 surefire17663793212964630997tmp surefire_011290175102753898293tmp"/>
+    <property name="sun.java.command" value="C:\Users\xJessD\AppData\Local\Temp\surefire13145723602936914032\surefirebooter1070793387722563943.jar C:\Users\xJessD\AppData\Local\Temp\surefire13145723602936914032 2025-05-25T10-36-11_125-jvmRun1 surefire16949932733142808367tmp surefire_08599572600914809172tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\xJessD\OneDrive\Documents\Projects\iotbay\target\test-classes;C:\Users\xJessD\OneDrive\Documents\Projects\iotbay\target\classes;C:\Users\xJessD\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\xJessD\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\xJessD\.m2\repository\org\xerial\sqlite-jdbc\3.49.1.0\sqlite-jdbc-3.49.1.0.jar;C:\Users\xJessD\.m2\repository\jakarta\servlet\jakarta.servlet-api\6.1.0\jakarta.servlet-api-6.1.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\xJessD\AppData\Local\Temp\surefire11170116611407858747\surefirebooter14443435352772186796.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\xJessD\AppData\Local\Temp\surefire13145723602936914032\surefirebooter1070793387722563943.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.8+9-LTS-211"/>
@@ -56,7 +56,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testGetPrice" classname="model.ProductTest" time="0.004"/>
+  <testcase name="testGetPrice" classname="model.ProductTest" time="0"/>
   <testcase name="testSetFavourited" classname="model.ProductTest" time="0"/>
   <testcase name="testSetDescription" classname="model.ProductTest" time="0"/>
   <testcase name="testIsFavourited" classname="model.ProductTest" time="0"/>
