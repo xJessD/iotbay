@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="model.ProductTest" time="0.019" tests="14" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="model.ProductTest" time="0.012" tests="14" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="23"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="LK"/>
     <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk/23.0.2/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/lesanduperera/iotbay/target/surefire/surefirebooter6305011788167077425.jar /Users/lesanduperera/iotbay/target/surefire 2025-05-26T19-55-30_708-jvmRun1 surefire15805236227020625282tmp surefire_017009444034559108018tmp"/>
+    <property name="sun.java.command" value="/Users/lesanduperera/iotbay/target/surefire/surefirebooter8583241263175582024.jar /Users/lesanduperera/iotbay/target/surefire 2025-05-27T05-16-56_226-jvmRun1 surefire8963724296674086992tmp surefire_02013557399092988644tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/lesanduperera/iotbay/target/test-classes:/Users/lesanduperera/iotbay/target/classes:/Users/lesanduperera/.m2/repository/junit/junit/4.11/junit-4.11.jar:/Users/lesanduperera/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/lesanduperera/.m2/repository/org/xerial/sqlite-jdbc/3.49.1.0/sqlite-jdbc-3.49.1.0.jar:/Users/lesanduperera/.m2/repository/jakarta/servlet/jakarta.servlet-api/6.1.0/jakarta.servlet-api-6.1.0.jar:"/>
@@ -29,7 +29,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/lesanduperera/iotbay/target/surefire/surefirebooter6305011788167077425.jar"/>
+    <property name="surefire.real.class.path" value="/Users/lesanduperera/iotbay/target/surefire/surefirebooter8583241263175582024.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="23.0.2"/>
@@ -58,7 +58,7 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="67.0"/>
   </properties>
-  <testcase name="testGetPrice" classname="model.ProductTest" time="0.002"/>
+  <testcase name="testGetPrice" classname="model.ProductTest" time="0.001"/>
   <testcase name="testSetFavourited" classname="model.ProductTest" time="0"/>
   <testcase name="testSetDescription" classname="model.ProductTest" time="0"/>
   <testcase name="testIsFavourited" classname="model.ProductTest" time="0"/>
@@ -66,10 +66,10 @@
   <testcase name="testGetProductID" classname="model.ProductTest" time="0"/>
   <testcase name="testSetQuantity" classname="model.ProductTest" time="0"/>
   <testcase name="testGetQuantity" classname="model.ProductTest" time="0"/>
-  <testcase name="testSetImageUrl" classname="model.ProductTest" time="0"/>
+  <testcase name="testSetImageUrl" classname="model.ProductTest" time="0.001"/>
   <testcase name="testGetImageUrl" classname="model.ProductTest" time="0"/>
   <testcase name="testGetDescription" classname="model.ProductTest" time="0"/>
   <testcase name="testSetProductID" classname="model.ProductTest" time="0"/>
-  <testcase name="testSetName" classname="model.ProductTest" time="0.001"/>
+  <testcase name="testSetName" classname="model.ProductTest" time="0"/>
   <testcase name="testSetPrice" classname="model.ProductTest" time="0"/>
 </testsuite>

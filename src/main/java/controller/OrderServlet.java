@@ -35,20 +35,19 @@ public class OrderServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Simulate user login if none exists
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
 
         if (user == null) {
+            System.out.println("👤 No user in session. Creating dummy user.");
             user = new User();
-            user.setCustomerID(1); // dummy fallback
+            user.setCustomerID(1);
             user.setFirstName("TestUser");
             session.setAttribute("user", user);
         }
 
         int customerID = user.getCustomerID();
 
-        // Get form data
         String[] productIDs = request.getParameterValues("productID");
         String[] quantities = request.getParameterValues("quantity");
         String[] requests = request.getParameterValues("requests");
@@ -93,7 +92,6 @@ public class OrderServlet extends HttpServlet {
             request.setAttribute("error", "❌ Failed to process order.");
         }
 
-        // Reload product list
         try {
             List<Product> products = productDAO.getAllProducts();
             System.out.println("📦 POST: products loaded = " + products.size());
@@ -113,35 +111,40 @@ public class OrderServlet extends HttpServlet {
         User user = (User) session.getAttribute("user");
 
         if (user == null) {
+            System.out.println("👤 No user in session. Creating dummy user.");
             user = new User();
-            user.setCustomerID(1); // fallback
+            user.setCustomerID(1);
             user.setFirstName("TestUser");
             session.setAttribute("user", user);
         }
 
         int customerID = user.getCustomerID();
         String action = request.getParameter("action");
+        System.out.println("🔍 GET action: " + action);
 
         try {
             if ("view".equals(action)) {
-                List<Order> orders = orderDAO.getAllOrders();  // ✅ get all orders
+                List<Order> orders = orderDAO.getAllOrders(); // 👈 change to get all orders
+                System.out.println("📋 Loaded " + orders.size() + " orders.");
                 request.setAttribute("orders", orders);
                 request.getRequestDispatcher("orderHistory.jsp").forward(request, response);
 
             } else if ("cancel".equals(action)) {
                 int orderID = Integer.parseInt(request.getParameter("orderID"));
                 orderDAO.cancelOrder(orderID);
+                System.out.println("❌ Cancelled order ID " + orderID);
                 response.sendRedirect("order?action=view");
 
             } else {
                 List<Product> products = productDAO.getAllProducts();
-                System.out.println("📦 GET: products loaded = " + products.size());
+                System.out.println("🛒 Loaded " + products.size() + " products.");
                 request.setAttribute("products", products);
                 request.getRequestDispatcher("order.jsp").forward(request, response);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("🚨 SQL Error: " + e.getMessage());
             response.sendRedirect("error.jsp");
         }
     }
