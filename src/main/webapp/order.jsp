@@ -1,14 +1,29 @@
-<%@ page import="model.User" %>
-<%@ page session="true" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page session="true" %>
+<%@ page import="model.User" %>
+<%@ page import="model.Product" %>
+<%@ page import="java.util.List" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Place Order</title>
+    <link rel="stylesheet" type="text/css" href="css.css"> <!-- Make sure this file exists -->
+</head>
+
+<body>
 <%@ include file="header.jsp" %>
 
 <%
+    // Simulated or existing session user
     User user = (User) session.getAttribute("user");
     if (user == null) {
-        response.sendRedirect("login.jsp");
-        return;
+        user = new User();
+        user.setFirstName("TestUser");
+        user.setCustomerID(1);
+        session.setAttribute("user", user);
     }
+
+    List<Product> products = (List<Product>) request.getAttribute("products");
 %>
 
 <div class="container">
@@ -16,39 +31,46 @@
 
     <p>Welcome, <strong><%= user.getFirstName() %></strong>!</p>
 
-    <!-- Navigation Links -->
-    <p>
-        <a href="index.jsp">🏠 Home</a> |
-        <a href="order?action=view">📦 My Orders</a> |
-        <a href="logout.jsp">🚪 Logout</a>
-    </p>
+   
 
     <form action="order" method="post">
-        <table border="1" cellpadding="8" cellspacing="0">
-            <tr>
-                <th>Product ID</th>
+        <table border="1" cellpadding="8" cellspacing="0" style="width: 100%; text-align: center;">
+            <tr style="background-color: #f2f2f2;">
+                <th>Product</th>
+                <th>Price</th>
+                <th>Available Stock</th>
                 <th>Quantity</th>
                 <th>Special Requests</th>
             </tr>
 
-            <!-- Example rows – replace with loop for real data -->
+            <% if (products != null && !products.isEmpty()) {
+                for (Product p : products) {
+            %>
             <tr>
-                <td><input type="text" name="productID" value="101" readonly></td>
-                <td><input type="number" name="quantity" value="1" min="1" required></td>
-                <td><input type="text" name="requests" placeholder="e.g. gift wrap" /></td>
+                <td>
+                    <input type="hidden" name="productID" value="<%= p.getProductID() %>" />
+                    <%= p.getName() %>
+                </td>
+                <td>$<%= String.format("%.2f", p.getPrice()) %></td>
+                <td><%= p.getStock() %></td>
+                <td>
+                    <input type="number" name="quantity" value="0" min="0" max="<%= p.getStock() %>" />
+                </td>
+                <td>
+                    <input type="text" name="requests" placeholder="e.g. gift wrap" />
+                </td>
             </tr>
+            <% } } else { %>
             <tr>
-                <td><input type="text" name="productID" value="102" readonly></td>
-                <td><input type="number" name="quantity" value="2" min="1" required></td>
-                <td><input type="text" name="requests" /></td>
+                <td colspan="5">⚠️ No products available.</td>
             </tr>
+            <% } %>
         </table>
 
         <br/>
-        <input type="submit" value="Submit Order" />
+        <input type="submit" value="Submit Order" class="form-button" />
     </form>
 
-    <!-- Feedback messages -->
     <div style="margin-top: 1em;">
         <% if (request.getAttribute("message") != null) { %>
             <p style="color: green;"><%= request.getAttribute("message") %></p>
@@ -59,3 +81,5 @@
 </div>
 
 <%@ include file="footer.jsp" %>
+</body>
+</html>

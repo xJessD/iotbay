@@ -17,7 +17,8 @@
             <section class="register-form-container">
                 <h2>Register</h2>
 
-                <form class="register-form" action="/webapp/welcome.jsp" method="post">
+                <form class="register-form" action="register" method="post">
+
                 
                 <div class="form-group">
                     <label for="fname">First Name: </label>
@@ -46,7 +47,7 @@
 
                 <button type="submit" class="form-button">Register</button>
 
-                <div class="form-group">Already have an account? <a href="/webapp/login.jsp">Log in</a>.</div>
+                <div class="form-group">Already have an account? <a href="login.jsp">Log in</a>.</div>
             </form>
             </section>
                 

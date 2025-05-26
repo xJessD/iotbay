@@ -87,5 +87,28 @@ public class OrderDAO {
             stmt.executeUpdate();
         }
     }
+
+    // 4. Get all orders (ignores customerID)
+public List<Order> getAllOrders() throws SQLException {
+    List<Order> orders = new ArrayList<>();
+    String sql = "SELECT * FROM Orders";
+
+    try (Statement stmt = conn.createStatement()) {
+        ResultSet rs = stmt.executeQuery(sql);
+        while (rs.next()) {
+            Order order = new Order(
+                rs.getInt("orderID"),
+                rs.getInt("customerID"),
+                rs.getString("orderStatus"),
+                rs.getDate("orderDate"),
+                rs.getDate("createdDate"),
+                rs.getDate("updatedDate")
+            );
+            orders.add(order);
+        }
+    }
+    return orders;
+}
+
 }
 
