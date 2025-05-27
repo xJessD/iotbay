@@ -11,7 +11,6 @@
 /Users/enrl/Downloads/iotbay/src/main/java/controller/OrderServlet.java
 /Users/enrl/Downloads/iotbay/src/main/java/controller/Validator.java
 /Users/enrl/Downloads/iotbay/src/main/java/controller/RegisterServlet.java
-/Users/enrl/Downloads/iotbay/src/main/java/controller/DeleteUserServlet.java
 /Users/enrl/Downloads/iotbay/src/main/java/model/dao/OrderDBSetup.java
 /Users/enrl/Downloads/iotbay/src/main/java/model/OrderLine.java
 /Users/enrl/Downloads/iotbay/src/main/java/model/dao/UserDAO.java
@@ -24,7 +23,6 @@
 /Users/enrl/Downloads/iotbay/src/main/java/model/dao/DBConnector.java
 /Users/enrl/Downloads/iotbay/src/main/java/model/Shipment.java
 /Users/enrl/Downloads/iotbay/src/main/java/controller/DeleteLogServlet.java
-/Users/enrl/Downloads/iotbay/src/main/java/controller/TestDBConnection.java
 /Users/enrl/Downloads/iotbay/src/main/java/controller/TestDB.java
 /Users/enrl/Downloads/iotbay/src/main/java/controller/AccessLogServlet.java
 /Users/enrl/Downloads/iotbay/src/main/java/model/Order.java

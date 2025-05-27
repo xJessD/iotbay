@@ -1,6 +1,5 @@
 model/dao/OrderDBSetup.class
 controller/DeleteLogServlet.class
-controller/DeleteUserServlet.class
 model/dao/DBConnector.class
 model/Product.class
 controller/TestDB.class

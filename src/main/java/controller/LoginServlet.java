@@ -16,6 +16,7 @@ import model.User;
 import model.AccessLog;
 import model.dao.UserDAO;
 import model.dao.AccessLogDAO;
+import model.dao.PaymentDAO;
 import model.dao.DBConnector;
 
 @WebServlet("/LoginServlet")
@@ -41,11 +42,14 @@ public class LoginServlet extends HttpServlet {
 
         // 5- retrieve the manager instance from session
         UserDAO manager = (UserDAO) session.getAttribute("manager");
-        if (manager == null) {
+        PaymentDAO paymentDAO = (PaymentDAO) session.getAttribute("paymentDAO");
+        if (manager == null || paymentDAO == null) {
             try {
                 Connection conn = new DBConnector().openConnection();
                 manager = new UserDAO(conn);
+                paymentDAO = new PaymentDAO(conn);
                 session.setAttribute("manager", manager);
+                session.setAttribute("paymentDAO", paymentDAO);
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
                 session.setAttribute("errorMessage", "A database connection error occurred. Please try again later.");

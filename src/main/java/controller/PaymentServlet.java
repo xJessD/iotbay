@@ -50,24 +50,18 @@ public class PaymentServlet extends HttpServlet {
             }
             
             if (action == null || action.equals("viewAll")) {
-                // Get the customer ID
-                String customerIDParam = request.getParameter("customerID");
-                int customerID;
-                
-                try {
-                    customerID = Integer.parseInt(customerIDParam);
-                } catch (NumberFormatException e) {
-                    // If customerID is not a valid integer, it might be an email or missing
-                    // Redirect to a safe page with an error message
-                    request.setAttribute("error", "Invalid customer ID format");
-                    request.getRequestDispatcher("payment.jsp").forward(request, response);
-                    return;
-                }
                 
                 // Get all payments for this customer
-                List<Payment> payments = paymentDAO.getPaymentsByCustomer(customerID);
-                request.setAttribute("payments", payments);
-                request.getRequestDispatcher("payment_history.jsp").forward(request, response);
+                try {
+                    int customerID = user.getUserID();
+                    List<Payment> payments = paymentDAO.getPaymentsByCustomer(customerID);
+                    request.setAttribute("payments", payments);
+                    System.out.println("Payments for customer ID " + customerID + ": " + payments);
+                    request.getRequestDispatcher("payment_history.jsp").forward(request, response);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error loading payment history.");
+                }
                 
             } else if (action.equals("view")) {
                 // View a specific payment
@@ -195,8 +189,9 @@ public class PaymentServlet extends HttpServlet {
             
             if (action.equals("create")) {
                 // Create a new payment
-                int orderID = Integer.parseInt(request.getParameter("orderID"));
-                int customerID = Integer.parseInt(request.getParameter("customerID"));
+                // int orderID = Integer.parseInt(request.getParameter("orderID"));
+                int orderID = 1001;
+                int customerID = 5;
                 String paymentDateStr = request.getParameter("paymentDate");
                 String paymentMethod = request.getParameter("paymentMethod");
                 String paymentAmount = request.getParameter("paymentAmount");
@@ -205,6 +200,9 @@ public class PaymentServlet extends HttpServlet {
                 String billingCity = request.getParameter("billingCity");
                 String billingState = request.getParameter("billingState");
                 String billingPhoneNumber = request.getParameter("billingPhoneNumber");
+                System.out.println("payment info: " + paymentDateStr + ", " + paymentMethod + ", " + paymentAmount + ", " +
+                        billingStreetAddress + ", " + billingPostcode + ", " + billingCity + ", " +
+                        billingState + ", " + billingPhoneNumber);
                 
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 Date paymentDate = sdf.parse(paymentDateStr);
