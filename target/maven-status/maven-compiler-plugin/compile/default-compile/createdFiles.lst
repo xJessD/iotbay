@@ -1,16 +1,17 @@
 model\CartItem.class
 controller\UpdateAccountServlet.class
 model\Cart.class
+controller\DeleteShipmentServlet.class
+controller\ShipmentSearchServlet.class
 model\dao\DBConnector.class
 controller\ManageUsersServlet.class
 controller\DeleteAccountServlet.class
-model\Staff.class
 model\dao\PaymentDAO.class
 model\Product.class
+controller\ShipmentServlet.class
 controller\UpdateUserServlet.class
 controller\PaymentServlet.class
 model\AccessLog.class
-model\Customer.class
 model\User.class
 controller\Validator.class
 controller\LoginServlet.class
@@ -21,6 +22,7 @@ controller\AccessLogServlet.class
 model\Invoice.class
 controller\OrderServlet.class
 model\Payment.class
+model\dao\ShipmentDAO.class
 model\Order.class
 model\Shipment.class
 controller\DeleteUserServlet.class
@@ -32,3 +34,4 @@ controller\DeleteLogServlet.class
 controller\LogoutServlet.class
 model\OrderLine.class
 controller\RegisterServlet.class
+model\dao\BaseDAO.class
