@@ -13,7 +13,7 @@
 
     <header>
         <title>Welcome</title>
-        <link href="/webapp/css.css" rel="stylesheet" type="text/css" >
+        <link href="css.css" rel="stylesheet" type="text/css" >
          
     </header>
 
@@ -28,14 +28,14 @@
                     if(false) { 
                     
                 %>
-                Hello guest, please register <a href="/webapp/register.jsp">here</a> or login <a href="/webapp/login.jsp">here</a>.
+                Hello guest, please register <a href="register.jsp">here</a> or login <a href="login.jsp">here</a>.
                 <%
                     } else {
                 %>
                    <h2>Welcome <%= user.getFirstName()%>!</h2> 
                    <p>Please explore our catalogue! <%= user.getEmail()%>.</p>
 
-                    <a href="/webapp/logout.jsp">Log Out.</a>
+                    <a href="logout.jsp">Log Out.</a>
                 <%
                     }
                 %>

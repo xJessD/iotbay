@@ -4,21 +4,22 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class User implements Serializable {
-    private int customerID;
     private String firstName;
     private String lastName;
     private String email;
     private String password;
     private String phoneNumber;
+    private String accountType;
     private Date createdDate;
     private Date updatedDate;
+    private int userID;
 
+    
     // Empty constructor
     public User() {}
 
     // Constructor without dates
-    public User(int customerID, String firstName, String lastName, String email, String password, String phoneNumber) {
-        this.customerID = customerID;
+    public User(String firstName, String lastName, String email, String password, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -27,8 +28,7 @@ public class User implements Serializable {
     }
 
     // Constructor with dates
-    public User(int customerID, String firstName, String lastName, String email, String password, String phoneNumber, Date createdDate, Date updatedDate) {
-        this.customerID = customerID;
+    public User(String firstName, String lastName, String email, String password, String phoneNumber, Date createdDate, Date updatedDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -39,14 +39,6 @@ public class User implements Serializable {
     }
 
     // Getters and Setters
-    public int getCustomerID() {
-        return customerID;
-    }
-
-    public void setCustomerID(int customerID) {
-        this.customerID = customerID;
-    }
-
     public String getFirstName() {
         return firstName;
     }
@@ -87,6 +79,14 @@ public class User implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+
     public Date getCreatedDate() {
         return createdDate;
     }
@@ -102,4 +102,12 @@ public class User implements Serializable {
     public void setUpdatedDate(Date updatedDate) {
         this.updatedDate = updatedDate;
     }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+    public int getUserID() {
+        return userID;
+    }
+
 }

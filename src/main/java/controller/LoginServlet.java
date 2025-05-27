@@ -1,7 +1,9 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jakarta.servlet.ServletException;
@@ -11,7 +13,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.User;
+import model.AccessLog;
 import model.dao.UserDAO;
+import model.dao.AccessLogDAO;
+import model.dao.DBConnector;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
@@ -21,6 +26,9 @@ public class LoginServlet extends HttpServlet {
 
         // 1- retrieve the current session
         HttpSession session = request.getSession();
+        
+        // Clear any previous error messages
+        session.removeAttribute("errorMessage");
 
         // 2- create an instance of the Validator class
         Validator validator = new Validator();
@@ -33,49 +41,83 @@ public class LoginServlet extends HttpServlet {
 
         // 5- retrieve the manager instance from session
         UserDAO manager = (UserDAO) session.getAttribute("manager");
+        if (manager == null) {
+            try {
+                Connection conn = new DBConnector().openConnection();
+                manager = new UserDAO(conn);
+                session.setAttribute("manager", manager);
+            } catch (ClassNotFoundException | SQLException ex) {
+                Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+                session.setAttribute("errorMessage", "A database connection error occurred. Please try again later.");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+                return;
+            }
+        }
+        AccessLogDAO accessLogDAO = (AccessLogDAO)session.getAttribute("accessLog");
 
         User user = null;
 
-        try {
-
-            user = manager.findUser(email, password);
-
-        } catch (SQLException ex) {
-
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-
+        // Check for empty fields first
+        if (email == null || email.trim().isEmpty()) {
+            session.setAttribute("errorMessage", "Email cannot be empty.");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+            return;
+        }
+        
+        if (password == null || password.trim().isEmpty()) {
+            session.setAttribute("errorMessage", "Password cannot be empty.");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+            return;
         }
 
+        // Validate email format
         if (!validator.validateEmail(email)) {
-
-            // 8-set incorrect email error to the session
-            session.setAttribute("errorMsg", "The email you entered is incorrect.");
-
-            // 9- redirect user back to the login.jsp
-            request.getRequestDispatcher("login.jsp").include(request, response);
-
-        } else if (!validator.validatePassword(password)) {
-
-            // 11-set incorrect password error to the session
-            session.setAttribute("errorMsg", "The password you entered is incorrect.");
-
-            // 12- redirect user back to the login.jsp
-            request.getRequestDispatcher("login.jsp").include(request, response);
-        } else if (user != null) {
-
-            // 13-save the logged in user object to the session
-            session.setAttribute("user", user);
-
-            // 14- redirect user to the main.jsp
-            request.getRequestDispatcher("index.jsp").include(request, response);
-        } else {
-
-            // 15-set user does not exist error to the session
-            session.setAttribute("errorMsg", "The user does not exist.");
-
-            // 16- redirect user back to the login.jsp
-            request.getRequestDispatcher("login.jsp").include(request, response);
+            session.setAttribute("errorMessage", "Invalid email format.");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+            return;
         }
 
+        try {
+            // Try to find the user
+            user = manager.findUser(email, password);
+            
+            if (user != null) {
+                // User found - successful login
+                session.setAttribute("user", user);
+    
+                // Clear any error messages and set success message
+                session.removeAttribute("errorMessage");
+                session.setAttribute("successMessage", "Login successful!");
+
+                // Log the login time
+                LocalDateTime now = LocalDateTime.now();
+                AccessLog accessLog = new AccessLog(user.getUserID(), now);
+
+                // Log the login time to the database
+                try {
+                    accessLogDAO.addAccessLog(accessLog);
+                } catch (SQLException ex) {
+                    Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                // Redirect user to the main page
+                response.sendRedirect("index.jsp");
+                return;
+            } else {
+                // User not found - check if email exists to give more specific error
+                if (manager.emailExists(email)) {
+                    session.setAttribute("errorMessage", "Incorrect password. Please try again.");
+                } else {
+                    session.setAttribute("errorMessage", "No account found with this email. Please register.");
+                }
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+                return;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+            session.setAttribute("errorMessage", "A database error occurred. Please try again later.");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+            return;
+        }
     }
 }

@@ -44,7 +44,7 @@ public class OrderServlet extends HttpServlet {
             return;
         }
 
-        int customerID = user.getCustomerID();  
+        int customerID = user.getUserID();  
 
         // Get form data
         String[] productIDs = request.getParameterValues("productID");
@@ -100,7 +100,7 @@ public class OrderServlet extends HttpServlet {
             return;
         }
 
-        int customerID = user.getCustomerID(); // Or getCustomerID()
+        int customerID = user.getUserID(); // Or getCustomerID()
 
         try {
             if ("view".equals(action)) {

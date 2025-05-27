@@ -21,6 +21,8 @@ public class ConnServlet extends HttpServlet {
     private DBConnector db;
 
     private UserDAO manager;
+
+    private AccessLogDAO accessLog;
     private PaymentDAO paymentManager;
 
     private Connection conn;
@@ -56,6 +58,11 @@ public class ConnServlet extends HttpServlet {
         try {
 
             manager = new UserDAO(conn);
+            accessLog = new AccessLogDAO(conn);
+
+            // Make sure to set both manager and accessLog as session attributes
+            session.setAttribute("manager", manager);
+            session.setAttribute("accessLog", accessLog);
             paymentManager = new PaymentDAO(conn);
 
         } catch (SQLException ex) {

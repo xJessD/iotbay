@@ -13,6 +13,14 @@ CREATE TABLE User (
     role VARCHAR(20)
 );
 
+CREATE TABLE IF NOT EXISTS AccessLog (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER NOT NULL,
+    loginDateTime TEXT NOT NULL,
+    logoutDateTime TEXT,
+    FOREIGN KEY (userId) REFERENCES User(id)
+);
+
 CREATE TABLE Payment (
     paymentID INTEGER PRIMARY KEY AUTO_INCREMENT,
     orderID INTEGER,
