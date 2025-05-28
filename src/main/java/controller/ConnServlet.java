@@ -14,7 +14,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import model.dao.*;
-import model.dao.ShipmentDAO;
 
 @WebServlet("/ConnServlet")
 public class ConnServlet extends HttpServlet {
@@ -25,7 +24,6 @@ public class ConnServlet extends HttpServlet {
 
     private AccessLogDAO accessLog;
     private PaymentDAO paymentManager;
-    private ShipmentDAO shipmentManager;
 
     private Connection conn;
 
@@ -61,8 +59,6 @@ public class ConnServlet extends HttpServlet {
 
             manager = new UserDAO(conn);
             accessLog = new AccessLogDAO(conn);
-            shipmentManager = new ShipmentDAO(conn);
-            session.setAttribute("shipmentDAO", shipmentManager);
 
             // Make sure to set both manager and accessLog as session attributes
             session.setAttribute("manager", manager);
@@ -90,10 +86,6 @@ public class ConnServlet extends HttpServlet {
         try {
 
             db.closeConnection();
-
-            if (shipmentManager != null) {
-            shipmentManager.close();
-        }
 
         } catch (SQLException ex) {
 

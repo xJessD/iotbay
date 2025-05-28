@@ -21,10 +21,8 @@
                 %>  <li><a href="login.jsp">Login</a></li>
                     <li><a href="register.jsp">Register</a></li>
                 <% } else {
-                    // User is logged in, show user-specific links
+                    // User is logged in, show logout button and username
                 %>
-                    <li><a href="ShipmentServlet">Shipments</a></li>
-                    <li><a href="order?action=view">Orders</a></li>
                     <li><span><a href="account.jsp">Welcome, <%= headerUser.getFirstName() %></a></span></li>
                     <li><a href="LogoutServlet" class="logout-button">Logout</a></li>
                 <% } %>

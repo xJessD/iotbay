@@ -130,8 +130,6 @@
                     <div class="account-actions">
                         <a href="editAccount.jsp" class="button">Edit Account Details</a>
                         <a href="accessLogs" class="button">View Access Logs</a>
-                        <a href="ShipmentServlet" class="button">My Shipments</a>
-                        <a href="order?action=view" class="button">My Orders</a>
                         <% if ("Staff".equals(user.getAccountType()) || "Customer".equals(user.getAccountType())) { %>
                             <a href="deleteAccount.jsp" class="button danger">Delete Account</a>
                         <% } %>
