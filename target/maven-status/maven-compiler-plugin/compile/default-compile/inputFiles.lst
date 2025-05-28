@@ -1,42 +1,3 @@
-<<<<<<< HEAD
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\model\dao\OrderDAO.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\model\OrderLine.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\model\dao\ShipmentDAO.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\model\AccessLog.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\model\Order.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\model\dao\BaseDAO.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\model\Shipment.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\controller\LogoutServlet.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\controller\DeleteLogServlet.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\controller\PaymentServlet.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\controller\TestDB.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\controller\Validator.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\controller\RegisterServlet.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\controller\UpdateUserServlet.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\model\dao\DB.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\model\dao\UserDAO.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\controller\DeleteShipmentServlet.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\model\dao\AccessLogDAO.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\model\Invoice.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\controller\ConnServlet.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\controller\LoginServlet.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\model\dao\PaymentDAO.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\model\Payment.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\model\CartItem.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\controller\DeleteUserServlet.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\controller\AccessLogServlet.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\model\dao\DBConnector.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\controller\ManageUsersServlet.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\controller\UpdateAccountServlet.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\controller\ShipmentServlet.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\model\User.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\controller\DeleteAccountServlet.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\controller\OrderServlet.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\model\dao\OrderDBSetup.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\controller\ShipmentSearchServlet.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\model\Cart.java
-C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\model\Product.java
-=======
 /Users/enrl/Downloads/iotbay/src/main/java/controller/ConnServlet.java
 /Users/enrl/Downloads/iotbay/src/main/java/controller/ManageUsersServlet.java
 /Users/enrl/Downloads/iotbay/src/main/java/model/Payment.java
@@ -68,4 +29,3 @@ C:\Users\thoma\OneDrive\Desktop\iotbay-3\src\main\java\model\Product.java
 /Users/enrl/Downloads/iotbay/src/main/java/model/CartItem.java
 /Users/enrl/Downloads/iotbay/src/main/java/model/dao/AccessLogDAO.java
 /Users/enrl/Downloads/iotbay/src/main/java/controller/UpdateUserServlet.java
->>>>>>> origin/main

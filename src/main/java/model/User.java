@@ -110,16 +110,4 @@ public class User implements Serializable {
         return userID;
     }
 
-    public boolean isAdmin() {
-        return "Admin".equals(this.accountType);
-    }
-
-    public boolean isStaff() {
-        return "Staff".equals(this.accountType);
-    }
-
-    public int getId() {
-        return this.userID;
-    }
-
 }

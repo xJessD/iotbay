@@ -1,42 +1,3 @@
-<<<<<<< HEAD
-model\CartItem.class
-controller\UpdateAccountServlet.class
-model\Cart.class
-controller\DeleteShipmentServlet.class
-controller\ShipmentSearchServlet.class
-model\dao\DBConnector.class
-controller\ManageUsersServlet.class
-controller\DeleteAccountServlet.class
-model\dao\PaymentDAO.class
-model\Product.class
-controller\ShipmentServlet.class
-controller\UpdateUserServlet.class
-controller\PaymentServlet.class
-model\AccessLog.class
-model\User.class
-controller\Validator.class
-controller\LoginServlet.class
-model\dao\AccessLogDAO.class
-controller\ConnServlet.class
-model\dao\DB.class
-controller\AccessLogServlet.class
-model\Invoice.class
-controller\OrderServlet.class
-model\Payment.class
-model\dao\ShipmentDAO.class
-model\Order.class
-model\Shipment.class
-controller\DeleteUserServlet.class
-model\dao\OrderDBSetup.class
-model\dao\UserDAO.class
-controller\TestDB.class
-model\dao\OrderDAO.class
-controller\DeleteLogServlet.class
-controller\LogoutServlet.class
-model\OrderLine.class
-controller\RegisterServlet.class
-model\dao\BaseDAO.class
-=======
 model/dao/OrderDBSetup.class
 controller/DeleteLogServlet.class
 model/dao/DBConnector.class
@@ -68,4 +29,3 @@ controller/Validator.class
 model/dao/DB.class
 model/User.class
 model/dao/PaymentDAO.class
->>>>>>> origin/main
