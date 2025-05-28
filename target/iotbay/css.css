@@ -158,8 +158,21 @@ main {
     margin-bottom: 1rem;
 }
 
-.form-button:hover {
-    background-color: #DDD;
+.form-button-shipment {
+    background-color: #F96E46;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+}
+
+
+.form-button-shipment:hover {
+    background-color: #e85d35;
 }
 
 .form-footer {
@@ -264,4 +277,35 @@ footer {
     .account-details {
         grid-template-columns: 1fr;
     }
+
+    .shipment-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    }
+
+    .shipment-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .shipment-table th,
+    .shipment-table td {
+        padding: 0.8rem;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+    }
+
+    .status-badge {
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+
+    .status-pending { background-color: #ffc107; color: #212529; }
+    .status-processing { background-color: #17a2b8; color: white; }
 }

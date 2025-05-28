@@ -140,3 +140,13 @@ VALUES (1008, 8, 2, 'Need these for bathroom and kitchen', '2025-05-10 15:30:00'
 
 INSERT INTO OrderLine (orderID, productID, quantity, requests, createdDate, updatedDate)
 VALUES (1008, 12, 1, NULL, '2025-05-10 15:30:00', '2025-05-10 15:30:00');
+
+-- Sample Shipment data
+INSERT INTO Shipment (orderID, customerID, shipmentMethod, streetAddress, city, state, postcode, status, finalized)
+VALUES (1, 1, 'Standard', '123 Main St', 'Sydney', 'NSW', '2000', 'Pending', 0);
+
+INSERT INTO Shipment (orderID, customerID, shipmentMethod, streetAddress, city, state, postcode, status, trackingNumber, finalized)
+VALUES (2, 2, 'Express', '456 Park Ave', 'Melbourne', 'VIC', '3000', 'Shipped', 'TRK1234567890', 1);
+
+INSERT INTO Shipment (orderID, customerID, shipmentMethod, streetAddress, city, state, postcode, status, finalized)
+VALUES (3, 3, 'Priority', '789 Queen St', 'Brisbane', 'QLD', '4000', 'Processing', 0);
