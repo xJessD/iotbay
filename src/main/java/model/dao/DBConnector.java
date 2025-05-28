@@ -13,7 +13,7 @@ public class DBConnector extends DB {
         Class.forName(driver);
 
         conn = DriverManager.getConnection(URL);
-    
+
     }
 
     public Connection openConnection() {
