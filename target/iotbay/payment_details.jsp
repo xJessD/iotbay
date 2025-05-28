@@ -167,6 +167,11 @@
                             <div class="detail-label">Payment Method:</div>
                             <div class="detail-value"><%= payment.getPaymentMethod() %></div>
                         </div>
+                        
+                        <div class="detail-row">
+                            <div class="detail-label">Payment Status:</div>
+                            <div class="detail-value"><%= payment.getPaymentStatus() %></div>
+                        </div>
                     </div>
                     
                     <div class="detail-section">
@@ -200,8 +205,11 @@
                     
                     <div class="btn-group">
                         <a href="PaymentServlet?action=viewAll&customerID=<%= payment.getCustomerID() %>" class="btn btn-secondary">Back to Payments</a>
-                        <a href="PaymentServlet?action=edit&paymentID=<%= payment.getPaymentID() %>" class="btn">Edit Payment</a>
-                        <a href="javascript:confirmDelete(<%= payment.getPaymentID() %>)" class="btn btn-danger">Delete Payment</a>
+                        <% if ("Pending".equals(payment.getPaymentStatus())) { %>
+                            <a href="PaymentServlet?action=edit&paymentID=<%= payment.getPaymentID() %>" class="btn">Edit Payment</a>
+                            <a href="PaymentServlet?action=confirm&paymentID=<%= payment.getPaymentID() %>" class="btn btn-success" onclick="return confirm('Are you sure you want to confirm this payment? This action cannot be undone.')">Confirm Payment</a>
+                            <a href="javascript:confirmDelete(<%= payment.getPaymentID() %>)" class="btn btn-danger">Delete Payment</a>
+                        <% } %>
                     </div>
                 </div>
             <% 

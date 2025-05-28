@@ -27,7 +27,7 @@ public class PaymentDAO {
         // Using prepared statement to prevent SQL injection
         String query = "INSERT INTO Payment (orderID, customerID, paymentDate, paymentMethod, " +
                 "paymentAmount, billingStreetAddress, billingPostcode, billingCity, billingState, " +
-                "billingPhoneNumber, createdDate, updatedDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                "billingPhoneNumber, paymentStatus, createdDate, updatedDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
         PreparedStatement ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         ps.setInt(1, orderID);
@@ -40,11 +40,12 @@ public class PaymentDAO {
         ps.setString(8, billingCity);
         ps.setString(9, billingState);
         ps.setString(10, billingPhoneNumber);
+        ps.setString(11, "Pending"); // Default status is Pending
         
         // Set created and updated dates to current time
         Date now = new Date();
-        ps.setDate(11, new java.sql.Date(now.getTime()));
         ps.setDate(12, new java.sql.Date(now.getTime()));
+        ps.setDate(13, new java.sql.Date(now.getTime()));
         
         ps.executeUpdate();
         
@@ -80,15 +81,16 @@ public class PaymentDAO {
         String query = "SELECT * FROM Payment WHERE paymentID = ?";
         PreparedStatement ps = conn.prepareStatement(query);
         ps.setInt(1, paymentID);
-        
         ResultSet rs = ps.executeQuery();
-        
         if (rs.next()) {
+            java.util.Date paymentDate = parseDateString(rs.getString("paymentDate"));
+            java.util.Date createdDate = parseDateString(rs.getString("createdDate"));
+            java.util.Date updatedDate = parseDateString(rs.getString("updatedDate"));
             Payment payment = new Payment(
                 rs.getInt("paymentID"),
                 rs.getInt("orderID"),
                 rs.getInt("customerID"),
-                new Date(rs.getDate("paymentDate").getTime()),
+                paymentDate,
                 rs.getString("paymentMethod"),
                 rs.getString("paymentAmount"),
                 rs.getString("billingStreetAddress"),
@@ -96,14 +98,13 @@ public class PaymentDAO {
                 rs.getString("billingCity"),
                 rs.getString("billingState"),
                 rs.getString("billingPhoneNumber"),
-                new Date(rs.getDate("createdDate").getTime()),
-                new Date(rs.getDate("updatedDate").getTime())
+                rs.getString("paymentStatus"),
+                createdDate,
+                updatedDate
             );
-            
             ps.close();
             return payment;
         }
-        
         ps.close();
         return null;
     }
@@ -113,16 +114,17 @@ public class PaymentDAO {
         String query = "SELECT * FROM Payment WHERE customerID = ? ORDER BY paymentDate DESC";
         PreparedStatement ps = conn.prepareStatement(query);
         ps.setInt(1, customerID);
-        
         ResultSet rs = ps.executeQuery();
         List<Payment> payments = new ArrayList<>();
-        
         while (rs.next()) {
+            java.util.Date paymentDate = parseDateString(rs.getString("paymentDate"));
+            java.util.Date createdDate = parseDateString(rs.getString("createdDate"));
+            java.util.Date updatedDate = parseDateString(rs.getString("updatedDate"));
             payments.add(new Payment(
                 rs.getInt("paymentID"),
                 rs.getInt("orderID"),
                 customerID,
-                new Date(rs.getDate("paymentDate").getTime()),
+                paymentDate,
                 rs.getString("paymentMethod"),
                 rs.getString("paymentAmount"),
                 rs.getString("billingStreetAddress"),
@@ -130,11 +132,11 @@ public class PaymentDAO {
                 rs.getString("billingCity"),
                 rs.getString("billingState"),
                 rs.getString("billingPhoneNumber"),
-                new Date(rs.getDate("createdDate").getTime()),
-                new Date(rs.getDate("updatedDate").getTime())
+                rs.getString("paymentStatus"),
+                createdDate,
+                updatedDate
             ));
         }
-        
         ps.close();
         return payments;
     }
@@ -144,16 +146,17 @@ public class PaymentDAO {
         String query = "SELECT * FROM Payment WHERE orderID = ? ORDER BY paymentDate DESC";
         PreparedStatement ps = conn.prepareStatement(query);
         ps.setInt(1, orderID);
-        
         ResultSet rs = ps.executeQuery();
         List<Payment> payments = new ArrayList<>();
-        
         while (rs.next()) {
+            java.util.Date paymentDate = parseDateString(rs.getString("paymentDate"));
+            java.util.Date createdDate = parseDateString(rs.getString("createdDate"));
+            java.util.Date updatedDate = parseDateString(rs.getString("updatedDate"));
             payments.add(new Payment(
                 rs.getInt("paymentID"),
                 orderID,
                 rs.getInt("customerID"),
-                new Date(rs.getDate("paymentDate").getTime()),
+                paymentDate,
                 rs.getString("paymentMethod"),
                 rs.getString("paymentAmount"),
                 rs.getString("billingStreetAddress"),
@@ -161,11 +164,11 @@ public class PaymentDAO {
                 rs.getString("billingCity"),
                 rs.getString("billingState"),
                 rs.getString("billingPhoneNumber"),
-                new Date(rs.getDate("createdDate").getTime()),
-                new Date(rs.getDate("updatedDate").getTime())
+                rs.getString("paymentStatus"),
+                createdDate,
+                updatedDate
             ));
         }
-        
         ps.close();
         return payments;
     }
@@ -177,16 +180,17 @@ public class PaymentDAO {
         ps.setInt(1, customerID);
         ps.setDate(2, new java.sql.Date(startDate.getTime()));
         ps.setDate(3, new java.sql.Date(endDate.getTime()));
-        
         ResultSet rs = ps.executeQuery();
         List<Payment> payments = new ArrayList<>();
-        
         while (rs.next()) {
+            java.util.Date paymentDate = parseDateString(rs.getString("paymentDate"));
+            java.util.Date createdDate = parseDateString(rs.getString("createdDate"));
+            java.util.Date updatedDate = parseDateString(rs.getString("updatedDate"));
             payments.add(new Payment(
                 rs.getInt("paymentID"),
                 rs.getInt("orderID"),
                 customerID,
-                new Date(rs.getDate("paymentDate").getTime()),
+                paymentDate,
                 rs.getString("paymentMethod"),
                 rs.getString("paymentAmount"),
                 rs.getString("billingStreetAddress"),
@@ -194,11 +198,11 @@ public class PaymentDAO {
                 rs.getString("billingCity"),
                 rs.getString("billingState"),
                 rs.getString("billingPhoneNumber"),
-                new Date(rs.getDate("createdDate").getTime()),
-                new Date(rs.getDate("updatedDate").getTime())
+                rs.getString("paymentStatus"),
+                createdDate,
+                updatedDate
             ));
         }
-        
         ps.close();
         return payments;
     }
@@ -207,6 +211,18 @@ public class PaymentDAO {
     public boolean updatePayment(int paymentID, String paymentMethod, String paymentAmount,
                                String billingStreetAddress, String billingPostcode, String billingCity,
                                String billingState, String billingPhoneNumber) throws SQLException {
+        
+        // First check if payment is in Pending status
+        String checkQuery = "SELECT paymentStatus FROM Payment WHERE paymentID = ?";
+        PreparedStatement checkPs = conn.prepareStatement(checkQuery);
+        checkPs.setInt(1, paymentID);
+        ResultSet rs = checkPs.executeQuery();
+        
+        if (rs.next() && !rs.getString("paymentStatus").equals("Pending")) {
+            checkPs.close();
+            return false; // Cannot update if not in Pending status
+        }
+        checkPs.close();
         
         String query = "UPDATE Payment SET paymentMethod = ?, paymentAmount = ?, billingStreetAddress = ?, " +
                 "billingPostcode = ?, billingCity = ?, billingState = ?, billingPhoneNumber = ?, " +
@@ -245,6 +261,18 @@ public class PaymentDAO {
     
     // Delete payment record
     public boolean deletePayment(int paymentID) throws SQLException {
+        // First check if payment is in Pending status
+        String checkQuery = "SELECT paymentStatus FROM Payment WHERE paymentID = ?";
+        PreparedStatement checkPs = conn.prepareStatement(checkQuery);
+        checkPs.setInt(1, paymentID);
+        ResultSet rs = checkPs.executeQuery();
+        
+        if (rs.next() && !rs.getString("paymentStatus").equals("Pending")) {
+            checkPs.close();
+            return false; // Cannot delete if not in Pending status
+        }
+        checkPs.close();
+        
         String query = "DELETE FROM Payment WHERE paymentID = ?";
         PreparedStatement ps = conn.prepareStatement(query);
         ps.setInt(1, paymentID);
@@ -255,13 +283,29 @@ public class PaymentDAO {
         return rowsDeleted > 0;
     }
     
+    // Confirm payment - change status from Pending to Confirmed
+    public boolean confirmPayment(int paymentID) throws SQLException {
+        String query = "UPDATE Payment SET paymentStatus = 'Confirmed', updatedDate = ? WHERE paymentID = ? AND paymentStatus = 'Pending'";
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setDate(1, new java.sql.Date(new Date().getTime()));
+        ps.setInt(2, paymentID);
+        
+        int rowsUpdated = ps.executeUpdate();
+        ps.close();
+        
+        return rowsUpdated > 0;
+    }
+    
     // Helper method to convert ResultSet row to Payment object
     private Payment resultSetToPayment(ResultSet rs) throws SQLException {
+        java.util.Date paymentDate = parseDateString(rs.getString("paymentDate"));
+        java.util.Date createdDate = parseDateString(rs.getString("createdDate"));
+        java.util.Date updatedDate = parseDateString(rs.getString("updatedDate"));
         return new Payment(
             rs.getInt("paymentID"),
             rs.getInt("orderID"),
             rs.getInt("customerID"),
-            new Date(rs.getDate("paymentDate").getTime()),
+            paymentDate,
             rs.getString("paymentMethod"),
             rs.getString("paymentAmount"),
             rs.getString("billingStreetAddress"),
@@ -269,8 +313,24 @@ public class PaymentDAO {
             rs.getString("billingCity"),
             rs.getString("billingState"),
             rs.getString("billingPhoneNumber"),
-            new Date(rs.getDate("createdDate").getTime()),
-            new Date(rs.getDate("updatedDate").getTime())
+            rs.getString("paymentStatus"),
+            createdDate,
+            updatedDate
         );
+    }
+    
+    // Helper method to parse a date string (yyyy-MM-dd or yyyy-MM-dd HH:mm:ss) to java.util.Date
+    private java.util.Date parseDateString(String dateStr) {
+        if (dateStr == null) return null;
+        try {
+            if (dateStr.length() == 10) { // yyyy-MM-dd
+                return new java.text.SimpleDateFormat("yyyy-MM-dd").parse(dateStr);
+            } else if (dateStr.length() == 19) { // yyyy-MM-dd HH:mm:ss
+                return new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(dateStr);
+            }
+        } catch (java.text.ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
