@@ -102,6 +102,18 @@
             color: #155724;
             border: 1px solid #c3e6cb;
         }
+        
+        .alert-warning {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+        }
+        
+        .alert-info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
     </style>
 </head>
 <body>
@@ -130,20 +142,29 @@
             <% 
             }
             
-            // Check if user is logged in
-            User paymentUser = (User)session.getAttribute("user");
-            if (paymentUser == null) {
+            Payment payment = (Payment)request.getAttribute("payment");
+            if (payment == null) {
             %>
                 <div class="alert alert-danger">
-                    You must be logged in to edit payment details.
-                    <a href="login.jsp">Log in here</a>
+                    No payment information available.
                 </div>
             <% 
             } else {
-                Payment payment = (Payment)request.getAttribute("payment");
+                if (!"Pending".equals(payment.getPaymentStatus())) {
+            %>
+                <div class="alert alert-warning">
+                    This payment is already confirmed and cannot be edited.
+                </div>
+            <%
+                } else {
+            %>
+                <div class="alert alert-info">
+                    You are editing a pending payment. Once a payment is confirmed, it cannot be modified.
+                </div>
+            <% 
+                }
                 
-                if (payment != null) {
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             %>
                 <form class="payment-form" action="PaymentServlet" method="post">
                     <input type="hidden" name="action" value="update">
@@ -241,17 +262,7 @@
                     </div>
                 </form>
             <% 
-                } else {
-            %>
-                <div class="alert alert-danger">
-                    Payment not found.
-                </div>
-                <div class="btn-group">
-                    <a href="PaymentServlet?action=viewAll&customerID=1" class="btn">Back to Payments</a>
-                </div>
-            <% 
                 }
-            }
             %>
         </div>
     </main>

@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.logging.Level;
@@ -15,6 +16,8 @@ import model.User;
 import model.AccessLog;
 import model.dao.UserDAO;
 import model.dao.AccessLogDAO;
+import model.dao.PaymentDAO;
+import model.dao.DBConnector;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
@@ -39,6 +42,21 @@ public class LoginServlet extends HttpServlet {
 
         // 5- retrieve the manager instance from session
         UserDAO manager = (UserDAO) session.getAttribute("manager");
+        PaymentDAO paymentDAO = (PaymentDAO) session.getAttribute("paymentDAO");
+        if (manager == null || paymentDAO == null) {
+            try {
+                Connection conn = new DBConnector().openConnection();
+                manager = new UserDAO(conn);
+                paymentDAO = new PaymentDAO(conn);
+                session.setAttribute("manager", manager);
+                session.setAttribute("paymentDAO", paymentDAO);
+            } catch (ClassNotFoundException | SQLException ex) {
+                Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+                session.setAttribute("errorMessage", "A database connection error occurred. Please try again later.");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+                return;
+            }
+        }
         AccessLogDAO accessLogDAO = (AccessLogDAO)session.getAttribute("accessLog");
 
         User user = null;

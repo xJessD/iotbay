@@ -256,9 +256,9 @@
                 </form>
                 
                 <div style="margin-top: 30px;">
-                    <h3>Payment Options</h3>
+                    <%-- <h3>Payment Options</h3> --%>
                     <p>
-                        <a href="PaymentServlet?action=viewAll&customerID=1" class="btn">View Payment History</a>
+                        <a href="PaymentServlet?action=viewAll" class="btn">View Payment History</a>
                     </p>
                 </div>
             <% } %>
@@ -269,14 +269,64 @@
     
     <script>
         // Show/hide credit card fields based on payment method selection
-        document.getElementById('paymentMethod').addEventListener('change', function() {
-            const creditCardFields = document.getElementById('creditCardFields');
-            if (this.value === 'Credit Card' || this.value === 'Debit Card') {
-                creditCardFields.style.display = 'block';
-            } else {
-                creditCardFields.style.display = 'none';
-            }
-        });
+        const paymentMethodSelect = document.getElementById('paymentMethod');
+        if (paymentMethodSelect) {
+            paymentMethodSelect.addEventListener('change', function() {
+                const creditCardFields = document.getElementById('creditCardFields');
+                if (this.value === 'Credit Card' || this.value === 'Debit Card') {
+                    creditCardFields.style.display = 'block';
+                } else {
+                    creditCardFields.style.display = 'none';
+                }
+            });
+        }
+
+        // Client-side form validation
+        const paymentForm = document.querySelector('.payment-form');
+        if (paymentForm) {
+            paymentForm.addEventListener('submit', function(e) {
+                let valid = true;
+                let errorMsg = '';
+                // Required fields
+                const requiredFields = [
+                    'paymentMethod', 'paymentAmount', 'billingStreetAddress', 'billingCity', 'billingState', 'billingPostcode', 'billingPhoneNumber'
+                ];
+                requiredFields.forEach(function(id) {
+                    const el = document.getElementById(id);
+                    if (el && !el.value.trim()) {
+                        valid = false;
+                        errorMsg += `${id.replace(/([A-Z])/g, ' $1')} is required.\n`;
+                    }
+                });
+                // Validate payment amount is a number
+                const amountEl = document.getElementById('paymentAmount');
+                if (amountEl && amountEl.value.trim() && isNaN(amountEl.value.trim())) {
+                    valid = false;
+                    errorMsg += 'Amount must be a number.\n';
+                }
+                // Validate phone number (basic: digits only, 8-15 digits)
+                const phoneEl = document.getElementById('billingPhoneNumber');
+                if (phoneEl && phoneEl.value.trim() && !/^\d{8,15}$/.test(phoneEl.value.trim())) {
+                    valid = false;
+                    errorMsg += 'Phone Number must be 8-15 digits.\n';
+                }
+                // If credit card, check card fields
+                if (document.getElementById('creditCardFields').style.display === 'block') {
+                    ['cardNumber', 'cardHolder', 'expiryDate', 'cvv'].forEach(function(id) {
+                        const el = document.getElementById(id);
+                        if (el && !el.value.trim()) {
+                            valid = false;
+                            errorMsg += `${id.replace(/([A-Z])/g, ' $1')} is required.\n`;
+                        }
+                    });
+                }
+                // If not valid, prevent submission and show error
+                if (!valid) {
+                    e.preventDefault();
+                    alert(errorMsg);
+                }
+            });
+        }
     </script>
 </body>
 </html>
