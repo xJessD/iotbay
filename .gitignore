@@ -7,3 +7,6 @@ DB.java
 extra_queries.sql
 Staff.java
 Customer.java
+src/main/webapp/WEB-INF/classes/
+src/main/webapp/WEB-INF/test-classes/
+target/classes/

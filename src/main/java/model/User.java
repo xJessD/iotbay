@@ -9,20 +9,36 @@ public class User implements Serializable {
     private String email;
     private String password;
     private String phoneNumber;
+    private String accountType;
     private Date createdDate;
     private Date updatedDate;
+    private int userID;
 
-    // Constructors
+    
+    // Empty constructor
     public User() {}
 
+    // Constructor without dates
     public User(String firstName, String lastName, String email, String password, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.phoneNumber = phoneNumber;
-    } 
-    // Getters & Setters
+    }
+
+    // Constructor with dates
+    public User(String firstName, String lastName, String email, String password, String phoneNumber, Date createdDate, Date updatedDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
+    }
+
+    // Getters and Setters
     public String getFirstName() {
         return firstName;
     }
@@ -53,7 +69,7 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    } 
+    }
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -62,4 +78,36 @@ public class User implements Serializable {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Date getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(Date updatedDate) {
+        this.updatedDate = updatedDate;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+    public int getUserID() {
+        return userID;
+    }
+
 }

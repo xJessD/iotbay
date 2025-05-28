@@ -2,7 +2,7 @@
 <%@page import="model.User"%>
 <nav>
     <div class="nav-left">
-        <h1 class="site-title">IoTBay</h1>
+        <div class="site-title"><a href="index.jsp" style="text-decoration:none;">IoTBay</a></div>
     </div>
 
     <div class="search-bar">
@@ -18,12 +18,12 @@
                     User headerUser = (User)session.getAttribute("user");
                     if (headerUser == null) {
                         // User is not logged in, show login and register links
-                %>
+                %>  <li><a href="login.jsp">Login</a></li>
                     <li><a href="register.jsp">Register</a></li>
                 <% } else {
                     // User is logged in, show logout button and username
                 %>
-                    <li><span>Welcome, <%= headerUser.getFirstName() %></span></li>
+                    <li><span><a href="account.jsp">Welcome, <%= headerUser.getFirstName() %></a></span></li>
                     <li><a href="LogoutServlet" class="logout-button">Logout</a></li>
                 <% } %>
         </ul>
